@@ -1,0 +1,8 @@
+@baseUrl = http://localhost:3000/api
+
+# Categories
+
+# @name getWorkList
+GET {{baseUrl}}/works
+
+###
