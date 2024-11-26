@@ -89,7 +89,7 @@ server.post('/api/login', async (req, res) => {
     const newPassword = faker.internet.password();
 
     db.profiles.push({ id, userName, email, password: newPassword });
-    await fs.promises.writeFile(path.join('db.json'), JSON.stringify(db, null, 2));
+    fs.writeFileSync(path.join('db.json'), JSON.stringify(db, null, 2));
 
     console.log('Access Token:', access_token);
     res.status(200).json({ access_token });
