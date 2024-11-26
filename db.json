@@ -1,251 +1,58 @@
 {
-  "categories": [
+  "posts": [
     {
-      "id": "44de65a0-439f-4def-8bf1-39607a16252e",
-      "name": "Movies",
-      "createdAt": 1732597003003,
-      "updatedAt": 1732597003003
+      "id": "03a772dd-a712-488c-8a9c-2f86f1b74d91",
+      "title": "Practical Micro Frontends: Building Scalable UIs",
+      "author": "Pin Nguyen",
+      "createdAt": 1732519037788,
+      "updatedAt": 1732519037788,
+      "slug": "",
+      "publishedDate": "2024-06-15T03:00:00Z",
+      "tagList": ["Design", "Pattern"],
+      "description": "This post explores how to implement micro frontends by breaking down monolithic UIs into smaller, manageable pieces. Using tools like React, Webpack, and Module Federation, you'll learn how to create scalable, maintainable front-end applications that enhance team collaboration and project flexibility."
     },
     {
-      "id": "b2f22774-aa55-4f0a-9a76-825eb1366e45",
-      "name": "Grocery",
-      "createdAt": 1732597003003,
-      "updatedAt": 1732597003003
-    },
-    {
-      "id": "27db3fb6-2edd-47a1-90bc-6d89c92a7784",
-      "name": "Outdoors",
-      "createdAt": 1732597003003,
-      "updatedAt": 1732597003003
-    },
-    {
-      "id": "93824129-45e1-40a3-b367-dc002107cbb2",
-      "name": "Home",
-      "createdAt": 1732597003003,
-      "updatedAt": 1732597003003
+      "id": "b2f3f822-aa1f-491b-8bf9-4269208dfc85",
+      "title": "Large Language Model (LLM) & Chatbox",
+      "author": "Pin Nguyen",
+      "createdAt": 1732519037788,
+      "updatedAt": 1732519037788,
+      "slug": "",
+      "publishedDate": "2024-06-16T03:00:00Z",
+      "tagList": ["AI", "Mechine Learning"],
+      "description": "This is a model that provides a general introduction to AI chatbots, large language models (LLMs), how to apply them in the workplace, essential knowledge about AI and prompts, their advantages and disadvantages, key terms related to LLMs, and tools that help enhance productivity for developers."
     }
   ],
-  "products": [
+  "works": [
     {
-      "categoryId": "44de65a0-439f-4def-8bf1-39607a16252e",
-      "id": "dc426de8-bc61-4cd3-85da-fb1faf1c1a96",
-      "name": "Gorgeous Rubber Chicken",
-      "color": "green",
-      "price": 611,
-      "description": "The Football Is Good For Training And Recreational Purposes",
-      "createdAt": 1732597003003,
-      "updatedAt": 1732597003003,
-      "thumbnailUrl": "http://placeimg.com/400/400"
+      "id": "c7e6a2ed-c6c8-4d3d-8e2f-3e30a6a41876",
+      "title": "Game tic tac toe",
+      "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1673735396428-d51dc2a7a62d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D",
+      "tagList": ["Game", "Web", "TypeScript"],
+      "fullDescription": "",
+      "createdAt": "1722091716231",
+      "updatedAt": "1722091716231",
+      "shortDescription": "A TypeScript Tic-Tac-Toe game where players take turns marking X and O on a 3x3 grid, with the winner determined by three aligned marks"
     },
     {
-      "categoryId": "44de65a0-439f-4def-8bf1-39607a16252e",
-      "id": "f7dc73c3-dafe-484a-a65c-e0e5eb66d7b5",
-      "name": "Refined Cotton Pizza",
-      "color": "lavender",
-      "price": 391,
-      "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-      "createdAt": 1732597003003,
-      "updatedAt": 1732597003003,
-      "thumbnailUrl": "http://placeimg.com/400/400"
+      "id": "5a3584c9-483b-41a0-8cf9-da751764fd60",
+      "title": "Game Color Matching",
+      "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1681843681830-7d4b70a435c1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sb3J8ZW58MHx8MHx8fDA%3D",
+      "tagList": ["Game", "Web", "TypeScript"],
+      "fullDescription": "",
+      "createdAt": "1722091716231",
+      "updatedAt": "1722091716231",
+      "shortDescription": "A TypeScript-based Color Matching game where players swap tiles to align three or more of the same color, with increasing difficulty and challenges as they progress."
     },
     {
-      "categoryId": "44de65a0-439f-4def-8bf1-39607a16252e",
-      "id": "d4cef9e1-0cdf-439b-9581-83e99d45dbe6",
-      "name": "Gorgeous Soft Computer",
-      "color": "red",
-      "price": 2,
-      "description": "The Football Is Good For Training And Recreational Purposes",
-      "createdAt": 1732597003003,
-      "updatedAt": 1732597003003,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "44de65a0-439f-4def-8bf1-39607a16252e",
-      "id": "14bf5532-3976-49cc-a064-0107be1cb6f9",
-      "name": "Ergonomic Soft Pants",
-      "color": "olive",
-      "price": 888,
-      "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-      "createdAt": 1732597003003,
-      "updatedAt": 1732597003003,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "44de65a0-439f-4def-8bf1-39607a16252e",
-      "id": "76863db5-adbf-4f34-be4d-1db9110881b1",
-      "name": "Practical Fresh Cheese",
-      "color": "gold",
-      "price": 871,
-      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-      "createdAt": 1732597003003,
-      "updatedAt": 1732597003003,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "b2f22774-aa55-4f0a-9a76-825eb1366e45",
-      "id": "31b35f20-bd02-4efb-98e7-65702ce83412",
-      "name": "Small Cotton Gloves",
-      "color": "azure",
-      "price": 806,
-      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-      "createdAt": 1732597003003,
-      "updatedAt": 1732597003003,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "b2f22774-aa55-4f0a-9a76-825eb1366e45",
-      "id": "191bc614-ae06-4604-b54d-50277144f8a4",
-      "name": "Gorgeous Wooden Chair",
-      "color": "mint green",
-      "price": 299,
-      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "b2f22774-aa55-4f0a-9a76-825eb1366e45",
-      "id": "64806565-1f8b-4be9-bea9-3ffa433630fe",
-      "name": "Licensed Soft Chips",
-      "color": "mint green",
-      "price": 136,
-      "description": "The Football Is Good For Training And Recreational Purposes",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "b2f22774-aa55-4f0a-9a76-825eb1366e45",
-      "id": "42d2bf11-adba-4b8d-af33-eea10fd492ab",
-      "name": "Ergonomic Steel Bike",
-      "color": "turquoise",
-      "price": 105,
-      "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "b2f22774-aa55-4f0a-9a76-825eb1366e45",
-      "id": "e8690f5c-12fd-4a46-99fe-2106c40c8324",
-      "name": "Gorgeous Metal Bacon",
-      "color": "turquoise",
-      "price": 750,
-      "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "27db3fb6-2edd-47a1-90bc-6d89c92a7784",
-      "id": "d1f63616-8b37-4cbe-9a9c-0aab3a912188",
-      "name": "Rustic Wooden Computer",
-      "color": "green",
-      "price": 348,
-      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "27db3fb6-2edd-47a1-90bc-6d89c92a7784",
-      "id": "9644963d-dd16-4b6d-9ea1-56a0ed97b72e",
-      "name": "Licensed Wooden Pants",
-      "color": "fuchsia",
-      "price": 589,
-      "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "27db3fb6-2edd-47a1-90bc-6d89c92a7784",
-      "id": "754e0104-c660-445e-9d3c-6bfd33d417f6",
-      "name": "Intelligent Steel Bike",
-      "color": "sky blue",
-      "price": 582,
-      "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "27db3fb6-2edd-47a1-90bc-6d89c92a7784",
-      "id": "9f9b699c-f330-47fa-9fae-aee1988431b5",
-      "name": "Refined Cotton Soap",
-      "color": "orange",
-      "price": 595,
-      "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "27db3fb6-2edd-47a1-90bc-6d89c92a7784",
-      "id": "0c8b931a-1238-45c9-b2f4-b3e459426de6",
-      "name": "Small Soft Pizza",
-      "color": "mint green",
-      "price": 344,
-      "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "93824129-45e1-40a3-b367-dc002107cbb2",
-      "id": "d46bfc25-ceb7-4f80-a141-1754766e9987",
-      "name": "Rustic Plastic Fish",
-      "color": "grey",
-      "price": 516,
-      "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "93824129-45e1-40a3-b367-dc002107cbb2",
-      "id": "7eb5518a-a2bd-47d6-b217-0b5dcc8a328b",
-      "name": "Rustic Metal Chair",
-      "color": "lavender",
-      "price": 941,
-      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "93824129-45e1-40a3-b367-dc002107cbb2",
-      "id": "d16fbeb5-d2da-4ddc-985f-8065ab161daa",
-      "name": "Rustic Granite Chair",
-      "color": "azure",
-      "price": 28,
-      "description": "The Football Is Good For Training And Recreational Purposes",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "93824129-45e1-40a3-b367-dc002107cbb2",
-      "id": "9529a3e7-0d7c-4e61-805d-17f28dd2e1ca",
-      "name": "Gorgeous Rubber Mouse",
-      "color": "lime",
-      "price": 180,
-      "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
-    },
-    {
-      "categoryId": "93824129-45e1-40a3-b367-dc002107cbb2",
-      "id": "16533265-4bc9-421c-9b09-9e01d7240c37",
-      "name": "Handmade Concrete Towels",
-      "color": "silver",
-      "price": 102,
-      "description": "The Football Is Good For Training And Recreational Purposes",
-      "createdAt": 1732597003004,
-      "updatedAt": 1732597003004,
-      "thumbnailUrl": "http://placeimg.com/400/400"
+      "id": "57c41b44-b53d-4e15-b101-b4598ec8ff3e",
+      "title": "Dashboard",
+      "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
+      "tagList": ["Web", "TypeScript", "ReactJS", "NextJS", "MongoDB"],
+      "fullDescription": "",
+      "createdAt": "1722091716231",
+      "updatedAt": "1722091716231",
+      "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
     }
-  ],
-  "profiles": []
+  ]
 }
