@@ -34,7 +34,7 @@ function isAuthenticated({ userName, password }) {
   return userName.trim().length >= 4 && password.trim().length >= 6;
 }
 
-server.post('/api/profile', (req, res) => {
+server.post('/api/profile', async (req, res) => {
   if (
     req.headers.authorization === undefined ||
     req.headers.authorization.split(' ')[0] !== 'Bearer'
@@ -45,38 +45,30 @@ server.post('/api/profile', (req, res) => {
     return;
   }
   try {
-    let verifyTokenResult;
-    verifyTokenResult = verifyToken(req.headers.authorization.split(' ')[1]);
+    const token = req.headers.authorization.split(' ')[1];
+    const verifyTokenResult = verifyToken(token);
 
     if (verifyTokenResult instanceof Error) {
-      const status = 401;
-      const message = 'Access token not provided';
-      res.status(status).json({ status, message });
-      return;
+      return res.status(401).json({ status: 401, message: 'Access token not provided' });
     }
-    // return user profile
-    fs.readFile('./db.json', (err, data) => {
-      if (err) {
-        const status = 401;
-        const message = err;
-        res.status(status).json({ status, message });
-        return;
-      }
-      // Get current data
-      var data = JSON.parse(data.toString());
-      const userProfile = data.profiles.find((user) => user.id === verifyTokenResult.id);
-      res.status(200).json(userProfile);
-    });
+
+    const data = JSON.parse(await fs.promises.readFile('./db.json', 'utf-8'));
+    const userProfile = data.profiles.find((user) => user.id === verifyTokenResult.id);
+
+    if (!userProfile) {
+      return res.status(404).json({ status: 404, message: 'User not found' });
+    }
+
+    res.status(200).json(userProfile);
   } catch (err) {
-    const status = 401;
-    const message = 'Error access_token is revoked';
-    res.status(status).json({ status, message });
+    console.error(err);
+    res.status(500).json({ status: 500, message: 'Internal Server Error' });
   }
 });
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
 
-server.post('/api/login', (req, res) => {
+server.post('/api/login', async (req, res) => {
   console.log('login endpoint called; request body:');
   console.log(req.body);
   const { userName = '', password = '' } = req.body;
@@ -86,38 +78,25 @@ server.post('/api/login', (req, res) => {
     res.status(status).json({ status, message });
     return;
   }
-  const id = faker.random.uuid();
-  const access_token = createToken({ id, userName, password });
-  fs.readFile('./db.json', (err, data) => {
-    if (err) {
-      const status = 401;
-      const message = err;
-      res.status(status).json({ status, message });
-      return;
-    }
-    // Get current users data
-    var data = JSON.parse(data.toString());
+  try {
+    const id = faker.datatype.uuid();
+    const access_token = createToken({ id, userName, password });
+
+    const dbPath = './db.json';
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf-8'));
 
     const email = faker.internet.email();
-    const password = faker.internet.password();
-    //Add new user
-    try {
-      data.profiles.push({ id, userName, email, password });
-      fs.writeFile('./db.json', JSON.stringify(data), (err, result) => {
-        // WRITE
-        if (err) {
-          const status = 401;
-          const message = err;
-          res.status(status).json({ status, message });
-          return;
-        }
-      });
-    } catch (e) {
-      res.status(500).json({ status: 500, message: 'internal server error' });
-    }
-  });
-  console.log('Access Token:' + access_token);
-  res.status(200).json({ access_token });
+    const newPassword = faker.internet.password();
+
+    data.profiles.push({ id, userName, email, password: newPassword });
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
+
+    console.log('Access Token:', access_token);
+    res.status(200).json({ access_token });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: 500, message: 'Internal Server Error' });
+  }
 });
 
 // Add custom routes before JSON Server router
