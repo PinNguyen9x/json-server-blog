@@ -1,14 +1,124 @@
 const jsonServer = require('json-server');
+const bodyParser = require('body-parser');
 const queryString = require('query-string');
 const fs = require('fs');
 const path = require('path');
+const jwt = require('jsonwebtoken');
+const faker = require('faker');
+
 const server = jsonServer.create();
 const db = JSON.parse(fs.readFileSync(path.join('db.json')));
 const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
 
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.json());
+server.use(middlewares);
+// Set locale to use Vietnamese
+faker.locale = 'vi';
+
+const SECRET_KEY = '123456789';
+const expiresIn = '1h';
+
+function createToken(payload) {
+  return jwt.sign(payload, SECRET_KEY, { expiresIn });
+}
+// Verify the token
+function verifyToken(token) {
+  return jwt.verify(token, SECRET_KEY, (err, decode) => (decode !== undefined ? decode : err));
+}
+
+// Check if the user exists in database
+function isAuthenticated({ userName, password }) {
+  if (!userName || !password) return false;
+  return userName.trim().length >= 4 && password.trim().length >= 6;
+}
+
+server.post('/api/profile', (req, res) => {
+  if (
+    req.headers.authorization === undefined ||
+    req.headers.authorization.split(' ')[0] !== 'Bearer'
+  ) {
+    const status = 401;
+    const message = 'Error in authorization format';
+    res.status(status).json({ status, message });
+    return;
+  }
+  try {
+    let verifyTokenResult;
+    verifyTokenResult = verifyToken(req.headers.authorization.split(' ')[1]);
+
+    if (verifyTokenResult instanceof Error) {
+      const status = 401;
+      const message = 'Access token not provided';
+      res.status(status).json({ status, message });
+      return;
+    }
+    // return user profile
+    fs.readFile('./db.json', (err, data) => {
+      if (err) {
+        const status = 401;
+        const message = err;
+        res.status(status).json({ status, message });
+        return;
+      }
+      // Get current data
+      var data = JSON.parse(data.toString());
+      const userProfile = data.profiles.find((user) => user.id === verifyTokenResult.id);
+      res.status(200).json(userProfile);
+    });
+  } catch (err) {
+    const status = 401;
+    const message = 'Error access_token is revoked';
+    res.status(status).json({ status, message });
+  }
+});
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
+
+server.post('/api/login', (req, res) => {
+  console.log('login endpoint called; request body:');
+  console.log(req.body);
+  const { userName = '', password = '' } = req.body;
+  if (isAuthenticated({ userName, password }) === false) {
+    const status = 401;
+    const message = 'Incorrect username or password';
+    res.status(status).json({ status, message });
+    return;
+  }
+  const id = faker.random.uuid();
+  const access_token = createToken({ id, userName, password });
+  fs.readFile('./db.json', (err, data) => {
+    if (err) {
+      const status = 401;
+      const message = err;
+      res.status(status).json({ status, message });
+      return;
+    }
+    // Get current users data
+    var data = JSON.parse(data.toString());
+
+    const email = faker.internet.email();
+    const password = faker.internet.password();
+    //Add new user
+    try {
+      data.profiles.push({ id, userName, email, password });
+      fs.writeFile('./db.json', JSON.stringify(data), (err, result) => {
+        // WRITE
+        if (err) {
+          const status = 401;
+          const message = err;
+          res.status(status).json({ status, message });
+          return;
+        }
+      });
+    } catch (e) {
+      res.status(500).json({ status: 500, message: 'internal server error' });
+    }
+  });
+  console.log('Access Token:' + access_token);
+  res.status(200).json({ access_token });
+});
 
 // Add custom routes before JSON Server router
 server.get('/echo', (req, res) => {
