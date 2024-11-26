@@ -3,17 +3,29 @@ const bodyParser = require('body-parser');
 const queryString = require('query-string');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const jwt = require('jsonwebtoken');
 const faker = require('faker');
 
 const server = jsonServer.create();
-const db = JSON.parse(fs.readFileSync(path.join('db.json')));
+
+// Đường dẫn tạm thời tới db.json trong thư mục /tmp
+const tmpDbPath = path.join(os.tmpdir(), 'db.json');
+
+// Sao chép db.json vào thư mục /tmp nếu chưa có
+fs.copyFileSync('db.json', tmpDbPath);
+
+// Đọc dữ liệu từ file db.json trong thư mục /tmp
+const db = JSON.parse(fs.readFileSync(tmpDbPath));
+
+// Tạo router từ file db.json trong /tmp
 const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
 
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.use(middlewares);
+
 // Set locale to use Vietnamese
 faker.locale = 'vi';
 
@@ -23,6 +35,7 @@ const expiresIn = '1h';
 function createToken(payload) {
   return jwt.sign(payload, SECRET_KEY, { expiresIn });
 }
+
 // Verify the token
 function verifyToken(token) {
   return jwt.verify(token, SECRET_KEY, (err, decode) => (decode !== undefined ? decode : err));
@@ -34,40 +47,7 @@ function isAuthenticated({ userName, password }) {
   return userName.trim().length >= 4 && password.trim().length >= 6;
 }
 
-server.post('/api/profile', async (req, res) => {
-  if (
-    req.headers.authorization === undefined ||
-    req.headers.authorization.split(' ')[0] !== 'Bearer'
-  ) {
-    const status = 401;
-    const message = 'Error in authorization format';
-    res.status(status).json({ status, message });
-    return;
-  }
-  try {
-    const token = req.headers.authorization.split(' ')[1];
-    const verifyTokenResult = verifyToken(token);
-
-    if (verifyTokenResult instanceof Error) {
-      return res.status(401).json({ status: 401, message: 'Access token not provided' });
-    }
-
-    // const data = JSON.parse(await fs.promises.readFile('./db.json', 'utf-8'));
-    const userProfile = db.profiles.find((user) => user.id === verifyTokenResult.id);
-
-    if (!userProfile) {
-      return res.status(404).json({ status: 404, message: 'User not found' });
-    }
-
-    res.status(200).json(userProfile);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ status: 500, message: 'Internal Server Error' });
-  }
-});
-// Set default middlewares (logger, static, cors and no-cache)
-server.use(middlewares);
-
+// API đăng nhập
 server.post('/api/login', async (req, res) => {
   console.log('login endpoint called; request body:');
   console.log(req.body);
@@ -78,21 +58,55 @@ server.post('/api/login', async (req, res) => {
     res.status(status).json({ status, message });
     return;
   }
+
   try {
     const id = faker.datatype.uuid();
     const access_token = createToken({ id, userName, password });
 
-    // const dbPath = './db.json';
-    // const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf-8'));
-
     const email = faker.internet.email();
     const newPassword = faker.internet.password();
 
+    // Thêm người dùng mới vào db trong /tmp
     db.profiles.push({ id, userName, email, password: newPassword });
-    fs.writeFileSync(path.join('db.json'), JSON.stringify(db, null, 2));
+
+    // Ghi lại vào file db.json trong /tmp
+    fs.writeFileSync(tmpDbPath, JSON.stringify(db, null, 2));
 
     console.log('Access Token:', access_token);
     res.status(200).json({ access_token });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: 500, message: 'Internal Server Error' });
+  }
+});
+
+// API profile
+server.post('/api/profile', async (req, res) => {
+  if (
+    req.headers.authorization === undefined ||
+    req.headers.authorization.split(' ')[0] !== 'Bearer'
+  ) {
+    const status = 401;
+    const message = 'Error in authorization format';
+    res.status(status).json({ status, message });
+    return;
+  }
+
+  try {
+    const token = req.headers.authorization.split(' ')[1];
+    const verifyTokenResult = verifyToken(token);
+
+    if (verifyTokenResult instanceof Error) {
+      return res.status(401).json({ status: 401, message: 'Access token not provided' });
+    }
+
+    const userProfile = db.profiles.find((user) => user.id === verifyTokenResult.id);
+
+    if (!userProfile) {
+      return res.status(404).json({ status: 404, message: 'User not found' });
+    }
+
+    res.status(200).json(userProfile);
   } catch (err) {
     console.error(err);
     res.status(500).json({ status: 500, message: 'Internal Server Error' });
