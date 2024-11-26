@@ -52,8 +52,8 @@ server.post('/api/profile', async (req, res) => {
       return res.status(401).json({ status: 401, message: 'Access token not provided' });
     }
 
-    const data = JSON.parse(await fs.promises.readFile('./db.json', 'utf-8'));
-    const userProfile = data.profiles.find((user) => user.id === verifyTokenResult.id);
+    // const data = JSON.parse(await fs.promises.readFile('./db.json', 'utf-8'));
+    const userProfile = db.profiles.find((user) => user.id === verifyTokenResult.id);
 
     if (!userProfile) {
       return res.status(404).json({ status: 404, message: 'User not found' });
@@ -82,14 +82,14 @@ server.post('/api/login', async (req, res) => {
     const id = faker.datatype.uuid();
     const access_token = createToken({ id, userName, password });
 
-    const dbPath = './db.json';
-    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf-8'));
+    // const dbPath = './db.json';
+    // const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf-8'));
 
     const email = faker.internet.email();
     const newPassword = faker.internet.password();
 
-    data.profiles.push({ id, userName, email, password: newPassword });
-    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
+    db.profiles.push({ id, userName, email, password: newPassword });
+    await fs.promises.writeFile(path.join('db.json'), JSON.stringify(db, null, 2));
 
     console.log('Access Token:', access_token);
     res.status(200).json({ access_token });
