@@ -24,14 +24,7 @@ const expiresIn = '1h';
 
 function createToken(payload, expiresIn) {
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn });
-
-  // Tính toán expiredAt (timestamp)
-  const expiresInMs =
-    typeof expiresIn === 'string' && expiresIn.endsWith('h')
-      ? parseInt(expiresIn) * 60 * 60 * 1000 // Nếu expiresIn là '1h'
-      : parseInt(expiresIn) * 1000; // Nếu expiresIn là số giây
-
-  const expiredAt = Date.now() + expiresInMs; // Timestamp
+  const expiredAt = Date.now() + 3600 * 1000;
   return { token, expiredAt };
 }
 // Verify the token
@@ -58,7 +51,6 @@ server.get('/api/profile', async (req, res) => {
   try {
     const token = req.headers.authorization.split(' ')[1];
     const verifyTokenResult = verifyToken(token);
-
     if (verifyTokenResult instanceof Error) {
       return res.status(401).json({ status: 401, message: 'Access token not provided' });
     }
