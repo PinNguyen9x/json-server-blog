@@ -5,12 +5,14 @@ const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken');
 const faker = require('faker');
+const cookieParser = require('cookie-parser');
 
 const server = jsonServer.create();
 const db = JSON.parse(fs.readFileSync(path.join('db.json')));
 const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
 
+server.use(cookieParser());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.use(middlewares);
@@ -34,29 +36,25 @@ function isAuthenticated({ userName, password }) {
   return userName.trim().length >= 4 && password.trim().length >= 6;
 }
 
-server.post('/api/profile', async (req, res) => {
-  if (
-    req.headers.authorization === undefined ||
-    req.headers.authorization.split(' ')[0] !== 'Bearer'
-  ) {
+server.get('/api/profile', async (req, res) => {
+  const token = req.cookies?.access_token;
+  if (!token) {
     const status = 401;
-    const message = 'Error in authorization format';
+    const message = 'Access token not provided in cookies';
     res.status(status).json({ status, message });
     return;
   }
   try {
-    const token = req.headers.authorization.split(' ')[1];
     const verifyTokenResult = verifyToken(token);
-
     if (verifyTokenResult instanceof Error) {
-      return res.status(401).json({ status: 401, message: 'Access token not provided' });
+      return res.status(401).json({ status: 401, message: 'Invalid or expired access token' });
     }
-    // mock user profile
+    // Mock user profile
     const userProfile = {
       id: verifyTokenResult.id,
       userName: verifyTokenResult.userName,
       email: faker.internet.email(),
-      password: verifyTokenResult.password,
+      city: faker.address.city(),
     };
 
     res.status(200).json(userProfile);
