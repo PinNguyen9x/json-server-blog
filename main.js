@@ -25,13 +25,13 @@ const expiresIn = '1h';
 function createToken(payload, expiresIn) {
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn });
 
-  // Chuyển đổi chuỗi expiresIn thành milliseconds
+  // Tính toán expiredAt (timestamp)
   const expiresInMs =
     typeof expiresIn === 'string' && expiresIn.endsWith('h')
-      ? parseInt(expiresIn) * 60 * 60 * 1000 // '1h' => 1 giờ
-      : parseInt(expiresIn) * 1000; // Giả sử các chuỗi khác (ví dụ '3600s') cũng được chuyển thành milliseconds
+      ? parseInt(expiresIn) * 60 * 60 * 1000 // Nếu expiresIn là '1h'
+      : parseInt(expiresIn) * 1000; // Nếu expiresIn là số giây
 
-  const expiredAt = new Date(Date.now() + expiresInMs);
+  const expiredAt = Date.now() + expiresInMs; // Timestamp
   return { token, expiredAt };
 }
 // Verify the token
@@ -40,9 +40,9 @@ function verifyToken(token) {
 }
 
 // Check if the user exists in database
-function isAuthenticated({ userName, password }) {
-  if (!userName || !password) return false;
-  return userName.trim().length >= 4 && password.trim().length >= 6;
+function isAuthenticated({ username, password }) {
+  if (!username || !password) return false;
+  return username.trim().length >= 4 && password.trim().length >= 6;
 }
 
 server.get('/api/profile', async (req, res) => {
@@ -82,8 +82,8 @@ server.use(middlewares);
 server.post('/api/login', async (req, res) => {
   console.log('login endpoint called; request body:');
   console.log(req.body);
-  const { uername = '', password = '' } = req.body;
-  if (isAuthenticated({ uername, password }) === false) {
+  const { username = '', password = '' } = req.body;
+  if (isAuthenticated({ username, password }) === false) {
     const status = 401;
     const message = 'Incorrect username or password';
     res.status(status).json({ status, message });
