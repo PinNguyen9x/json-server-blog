@@ -65,96 +65,96 @@
       "title": "Json-Server",
       "status": "draft",
       "slug": "json-server",
-      "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
+      "thumbnailUrl": "https://media.istockphoto.com/id/1903606349/photo/api-concept-application-programming-interface-connect-services-on-internet.webp?a=1&b=1&s=612x612&w=0&k=20&c=1Vjx3Fo2o5r8mOQxmujg0ddgSea_dj1tYmTTio150xA=",
       "tagList": ["TypeScript", "Faker", "Express"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
+      "shortDescription": "The application API uses **json-server** to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete) and is ideal for developing or testing web applications without a complex backend. It is easy to configure, flexible, and extensible."
     },
     {
       "id": "e09bf720-0989-445c-b0bb-457ec99c8dd8",
       "title": "Photo-albums",
       "status": "draft",
       "slug": "photo-albums",
-      "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvdG8lMjAlMjBhbGJ1bXN8ZW58MHx8MHx8fDA%3D",
       "tagList": ["TypeScript", "Reactjs", "ViteJs", "Tailwindcss", "Redux", "Firebase"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
+      "shortDescription": "The **Photo-Albums** application allows users to manage personal photos by organizing them into albums. Users can create albums, add, delete photos, and fetch random images from the **Picsum** API. The interface is simple, providing an effective experience for managing and sharing photos."
     },
     {
       "id": "e85672df-975e-4813-bedb-68b3f1cb7c2b",
       "title": "Photo-Analysys",
       "status": "draft",
       "slug": "photo-analysys",
-      "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
+      "thumbnailUrl": "https://media.istockphoto.com/id/1311598658/photo/businessman-trading-online-stock-market-on-teblet-screen-digital-investment-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=IWQzVeh6--ZOe9YxB1-EI1KSWooYTpZS2sqe6Zu6GJM=",
       "tagList": ["Python", "Gradio"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
+      "shortDescription": "The **Photo-Analysis** application analyzes the content of uploaded images. It uses AI to detect and identify objects, scenes, and other visual elements within the photo. The app provides insights and descriptions, helping users understand the content through automated image analysis. Simple and efficient for content recognition tasks."
     },
     {
       "id": "b136a089-8088-4be4-ba76-9abea7db9028",
       "title": "React-Query",
       "status": "draft",
       "slug": "react-query",
-      "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
-      "tagList": ["Python", "Gradio"],
+      "thumbnailUrl": "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UmVhY3QlMjBRdWVyeXxlbnwwfHwwfHx8MA%3D%3D",
+      "tagList": ["Reactjs", "TypeScript", "ViteJs", "Tailwindcss", "React Query"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
+      "shortDescription": "The **Research React-Query** application demonstrates the usage of React Query for data fetching, caching, and synchronization in React applications. It simplifies state management by automating server state handling, allowing users to efficiently fetch, cache, and update data with minimal effort, improving performance and user experience."
     },
     {
       "id": "604356c6-13ea-4c2f-9211-66922785a3e8",
       "title": "AI-Chatbot",
       "status": "draft",
       "slug": "ai-chatbot",
-      "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
+      "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1725907643567-1694c2737432?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWklMjBjaGF0Ym90fGVufDB8fDB8fHww",
       "tagList": ["Python", "Gradio"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
+      "shortDescription": "The **AI-Chatbot** application utilizes OpenAI's and Claude's chat APIs to provide intelligent, interactive conversations. It leverages AI to understand and respond to user inputs, offering personalized chatbot experiences."
     },
     {
       "id": "3a41ecc3-cd1f-4358-9fc0-2f1f14a97763",
       "title": "AI-Generate-Image",
       "status": "draft",
       "slug": "ai-generate-image",
-      "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
+      "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1726556396492-de930dd1c9bd?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGFpJTIwY2hhdGJvdHxlbnwwfHwwfHx8MA%3D%3D",
       "tagList": ["Python", "Gradio", "Stable Diffusion"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
+      "shortDescription": "The **AI-Generate-Image** application uses Stable Diffusion technology to create images from text prompts. It leverages AI to generate high-quality, customized visuals based on user input, enabling creative image generation."
     },
     {
       "id": "81206f0e-0f34-4f91-a907-9eff3f18b2d4",
       "title": "Frontend-Unit-Test",
       "status": "draft",
       "slug": "react-unit-test",
-      "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1593720217529-01f0a5d09aed?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
       "tagList": ["Reactjs", "ViteJs", "React Testing Library", "Jest"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
+      "shortDescription": "The **Frontend-Unit-Test Research** application explores unit testing in React using **React Testing Library** and **Jest**. It focuses on writing and executing tests to ensure component functionality, promoting robust and maintainable frontend code."
     },
     {
       "id": "a4467850-b6b9-4597-9725-787878d6ac9e",
       "title": "Twitter-Node-Server",
       "status": "draft",
       "slug": "twitter-node-server",
-      "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1611162618479-ee3d24aaef0b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8VHdpdHRlcnxlbnwwfHwwfHx8MA%3D%3D",
       "tagList": ["Nodejs", "MongoDB", "Docker", "GitHub Action"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
+      "shortDescription": "The **Twitter-Node-Server** application integrates with the Twitter API to fetch and display tweets. It allows users to interact with Twitter data, providing a backend service for managing and retrieving tweets efficiently."
     }
   ],
   "tags": [
@@ -168,6 +168,10 @@
     "Nodejs",
     "MongoDB",
     "Docker",
-    "GitHub Action"
+    "GitHub Action",
+    "TypeScript",
+    "Tailwindcss",
+    "Redux",
+    "Firebase"
   ]
 }
