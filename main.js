@@ -37,24 +37,28 @@ function isAuthenticated({ userName, password }) {
 }
 
 server.get('/api/profile', async (req, res) => {
-  const token = req.header.cookies?.access_token;
-  if (!token) {
+  if (
+    req.headers.authorization === undefined ||
+    req.headers.authorization.split(' ')[0] !== 'Bearer'
+  ) {
     const status = 401;
-    const message = 'Access token not provided in cookies';
+    const message = 'Error in authorization format';
     res.status(status).json({ status, message });
     return;
   }
   try {
+    const token = req.headers.authorization.split(' ')[1];
     const verifyTokenResult = verifyToken(token);
+
     if (verifyTokenResult instanceof Error) {
-      return res.status(401).json({ status: 401, message: 'Invalid or expired access token' });
+      return res.status(401).json({ status: 401, message: 'Access token not provided' });
     }
-    // Mock user profile
+    // mock user profile
     const userProfile = {
       id: verifyTokenResult.id,
       userName: verifyTokenResult.userName,
       email: faker.internet.email(),
-      city: faker.address.city(),
+      password: verifyTokenResult.password,
     };
 
     res.status(200).json(userProfile);
