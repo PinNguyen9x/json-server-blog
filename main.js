@@ -5,14 +5,14 @@ const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken');
 const faker = require('faker');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 
 const server = jsonServer.create();
 const db = JSON.parse(fs.readFileSync(path.join('db.json')));
 const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
 
-server.use(cookieParser());
+// server.use(cookieParser());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.use(middlewares);
@@ -22,8 +22,17 @@ faker.locale = 'vi';
 const SECRET_KEY = '123456789';
 const expiresIn = '1h';
 
-function createToken(payload) {
-  return jwt.sign(payload, SECRET_KEY, { expiresIn });
+function createToken(payload, expiresIn) {
+  const token = jwt.sign(payload, SECRET_KEY, { expiresIn });
+
+  // Chuyển đổi chuỗi expiresIn thành milliseconds
+  const expiresInMs =
+    typeof expiresIn === 'string' && expiresIn.endsWith('h')
+      ? parseInt(expiresIn) * 60 * 60 * 1000 // '1h' => 1 giờ
+      : parseInt(expiresIn) * 1000; // Giả sử các chuỗi khác (ví dụ '3600s') cũng được chuyển thành milliseconds
+
+  const expiredAt = new Date(Date.now() + expiresInMs);
+  return { token, expiredAt };
 }
 // Verify the token
 function verifyToken(token) {
@@ -58,7 +67,7 @@ server.get('/api/profile', async (req, res) => {
       id: verifyTokenResult.id,
       userName: verifyTokenResult.userName,
       email: faker.internet.email(),
-      password: verifyTokenResult.password,
+      city: faker.address.city(),
     };
 
     res.status(200).json(userProfile);
@@ -73,8 +82,8 @@ server.use(middlewares);
 server.post('/api/login', async (req, res) => {
   console.log('login endpoint called; request body:');
   console.log(req.body);
-  const { userName = '', password = '' } = req.body;
-  if (isAuthenticated({ userName, password }) === false) {
+  const { uername = '', password = '' } = req.body;
+  if (isAuthenticated({ uername, password }) === false) {
     const status = 401;
     const message = 'Incorrect username or password';
     res.status(status).json({ status, message });
@@ -82,9 +91,9 @@ server.post('/api/login', async (req, res) => {
   }
   try {
     const id = faker.datatype.uuid();
-    const access_token = createToken({ id, userName, password });
+    const { token: access_token, expiredAt } = createToken({ id, username }, expiresIn);
     console.log('Access Token:', access_token);
-    res.status(200).json({ access_token });
+    res.status(200).json({ access_token, expiredAt });
   } catch (err) {
     console.error(err);
     res.status(500).json({ status: 500, message: 'Internal Server Error' });
