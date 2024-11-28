@@ -37,7 +37,7 @@ function isAuthenticated({ userName, password }) {
 }
 
 server.get('/api/profile', async (req, res) => {
-  const token = req.cookies?.access_token;
+  const token = req.header.cookies?.access_token;
   if (!token) {
     const status = 401;
     const message = 'Access token not provided in cookies';
