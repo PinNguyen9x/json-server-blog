@@ -57,7 +57,7 @@ server.get('/api/profile', async (req, res) => {
     // mock user profile
     const userProfile = {
       id: verifyTokenResult.id,
-      userName: verifyTokenResult.userName,
+      username: verifyTokenResult.username,
       email: faker.internet.email(),
       city: faker.address.city(),
     };
