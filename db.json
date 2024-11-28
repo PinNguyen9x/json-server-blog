@@ -156,5 +156,18 @@
       "updatedAt": "1722091716231",
       "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
     }
+  ],
+  "tags": [
+    "Python",
+    "Gradio",
+    "Stable Diffusion",
+    "Reactjs",
+    "ViteJs",
+    "React Testing Library",
+    "Jest",
+    "Nodejs",
+    "MongoDB",
+    "Docker",
+    "GitHub Action"
   ]
 }
