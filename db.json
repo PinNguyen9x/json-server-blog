@@ -54,7 +54,7 @@
       "status": "draft",
       "slug": "twitter-node-server",
       "thumbnailUrl": "https://images.unsplash.com/photo-1611162618479-ee3d24aaef0b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8VHdpdHRlcnxlbnwwfHwwfHx8MA%3D%3D",
-      "tagList": ["Nodejs", "MongoDB", "Docker", "GitHub Action"],
+      "tagList": ["Nodejs", "MongoDB", "Docker", "GitHub Action", "JSONServer"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -172,6 +172,7 @@
     "TypeScript",
     "Tailwindcss",
     "Redux",
-    "Firebase"
+    "Firebase",
+    "JSONServer"
   ]
 }
