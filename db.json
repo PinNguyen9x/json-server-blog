@@ -35,7 +35,7 @@
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "A TypeScript Tic-Tac-Toe game where players take turns marking X and O on a 3x3 grid, with the winner determined by three aligned marks"
+      "shortDescription": "A TypeScript Tic-Tac-Toe game where players take turns marking The <span style=\"font-weight: 700; font-style: italic;\">X and O on a 3x3 grid</span>, with the winner determined by three aligned marks"
     },
     {
       "id": "2feaafad-7086-45ce-9f9d-515a7e7d6ba3",
@@ -63,7 +63,7 @@
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The **Twitter-Node-Server** application integrates with the Twitter API to fetch and display tweets. It allows users to interact with Twitter data, providing a backend service for managing and retrieving tweets efficiently."
+      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">**Twitter-Node-Server**</span> application integrates with the Twitter API to fetch and display tweets. It allows users to interact with Twitter data, providing a backend service for managing and retrieving tweets efficiently."
     },
     {
       "id": "6bc7c512-64a9-4020-a418-ede8392c0293",
@@ -92,7 +92,7 @@
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The application API uses **json-server** to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete) and is ideal for developing or testing web applications without a complex backend. It is easy to configure, flexible, and extensible."
+      "shortDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">**json-server**</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete) and is ideal for developing or testing web applications without a complex backend. It is easy to configure, flexible, and extensible."
     },
     {
       "id": "e09bf720-0989-445c-b0bb-457ec99c8dd8",
@@ -105,7 +105,7 @@
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The **Photo-Albums** application allows users to manage personal photos by organizing them into albums. Users can create albums, add, delete photos, and fetch random images from the **Picsum** API. The interface is simple, providing an effective experience for managing and sharing photos."
+      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">**Photo-Albums**</span> application allows users to manage personal photos by organizing them into albums. Users can create albums, add, delete photos, and fetch random images from the **Picsum** API. The interface is simple, providing an effective experience for managing and sharing photos."
     },
     {
       "id": "e85672df-975e-4813-bedb-68b3f1cb7c2b",
@@ -118,7 +118,7 @@
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The **Photo-Analysis** application analyzes the content of uploaded images. It uses AI to detect and identify objects, scenes, and other visual elements within the photo. The app provides insights and descriptions, helping users understand the content through automated image analysis. Simple and efficient for content recognition tasks."
+      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">**Photo-Analysis**</span> application analyzes the content of uploaded images. It uses AI to detect and identify objects, scenes, and other visual elements within the photo. The app provides insights and descriptions, helping users understand the content through automated image analysis. Simple and efficient for content recognition tasks."
     },
     {
       "id": "b136a089-8088-4be4-ba76-9abea7db9028",
@@ -131,7 +131,7 @@
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The **Research React-Query** application demonstrates the usage of React Query for data fetching, caching, and synchronization in React applications. It simplifies state management by automating server state handling, allowing users to efficiently fetch, cache, and update data with minimal effort, improving performance and user experience."
+      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">**Research React-Query**</span> application demonstrates the usage of React Query for data fetching, caching, and synchronization in React applications. It simplifies state management by automating server state handling, allowing users to efficiently fetch, cache, and update data with minimal effort, improving performance and user experience."
     },
     {
       "id": "604356c6-13ea-4c2f-9211-66922785a3e8",
@@ -145,7 +145,7 @@
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The **AI-Chatbot** application utilizes OpenAI's and Claude's chat APIs to provide intelligent, interactive conversations. It leverages AI to understand and respond to user inputs, offering personalized chatbot experiences."
+      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">**AI-Chatbot**</span> application utilizes OpenAI's and Claude's chat APIs to provide intelligent, interactive conversations. It leverages AI to understand and respond to user inputs, offering personalized chatbot experiences."
     },
     {
       "id": "3a41ecc3-cd1f-4358-9fc0-2f1f14a97763",
@@ -159,7 +159,7 @@
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The **AI-Generate-Image** application uses Stable Diffusion technology to create images from text prompts. It leverages AI to generate high-quality, customized visuals based on user input, enabling creative image generation."
+      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">**AI-Generate-Image**</span> application uses Stable Diffusion technology to create images from text prompts. It leverages AI to generate high-quality, customized visuals based on user input, enabling creative image generation."
     },
     {
       "id": "81206f0e-0f34-4f91-a907-9eff3f18b2d4",
@@ -173,7 +173,7 @@
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The **Frontend-Unit-Test Research** application explores unit testing in React using **React Testing Library** and **Jest**. It focuses on writing and executing tests to ensure component functionality, promoting robust and maintainable frontend code."
+      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">**Frontend-Unit-Test Research**</span> application explores unit testing in React using **React Testing Library** and **Jest**. It focuses on writing and executing tests to ensure component functionality, promoting robust and maintainable frontend code."
     }
   ],
   "tags": [
