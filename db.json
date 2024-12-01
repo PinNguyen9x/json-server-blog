@@ -56,7 +56,7 @@
       "status": "draft",
       "slug": "twitter-node-server",
       "frontEndTagList": ["ReactJS", "NextJS"],
-      "backEndTagList": ["NodeJS", "Docker", "JSON Server", "Express"],
+      "backEndTagList": ["NodeJS", "Docker", "JSON Server", "ExpressJS"],
       "dbTagList": ["MongoDB", "AWS"],
       "thumbnailUrl": "https://images.unsplash.com/photo-1611162618479-ee3d24aaef0b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8VHdpdHRlcnxlbnwwfHwwfHx8MA%3D%3D",
       "tagList": ["NodeJS", "MongoDB", "Docker", "GitHub Action", "JSON Server"],
@@ -86,9 +86,9 @@
       "status": "draft",
       "slug": "json-server",
       "frontEndTagList": ["TypeScript", "ReactJS"],
-      "backEndTagList": ["NodeJS", "Express", "JWT"],
+      "backEndTagList": ["NodeJS", "ExpressJS", "JWT"],
       "thumbnailUrl": "https://media.istockphoto.com/id/1903606349/photo/api-concept-application-programming-interface-connect-services-on-internet.webp?a=1&b=1&s=612x612&w=0&k=20&c=1Vjx3Fo2o5r8mOQxmujg0ddgSea_dj1tYmTTio150xA=",
-      "tagList": ["TypeScript", "Faker", "Express"],
+      "tagList": ["TypeScript", "Faker", "ExpressJS"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -194,6 +194,9 @@
     "Firebase",
     "JSON Server",
     "GitHub Action",
-    "Faker"
+    "Faker",
+    "ExpressJS",
+    "NextJS",
+    "React Query"
   ]
 }
