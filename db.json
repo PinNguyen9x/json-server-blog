@@ -29,7 +29,7 @@
       "title": "Game tic tac toe",
       "status": "published",
       "slug": "game-tic-tac-toe",
-      "frontEndTagList": ["TypeScript"],
+      "frontEndTagList": ["TypeScript to handle game logic", "MUI to style the game board"],
       "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1673735396428-d51dc2a7a62d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D",
       "tagList": ["Game", "Web", "TypeScript"],
       "fullDescription": "",
@@ -42,7 +42,7 @@
       "title": "Game Color Matching",
       "slug": "game-color-matching",
       "status": "published",
-      "frontEndTagList": ["TypeScript"],
+      "frontEndTagList": ["TypeScript to handle game logic", "MUI to style the game board"],
       "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1681843681830-7d4b70a435c1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sb3J8ZW58MHx8MHx8fDA%3D",
       "tagList": ["Game", "Web", "TypeScript"],
       "fullDescription": "",
@@ -55,9 +55,19 @@
       "title": "Twitter-Node-Server",
       "status": "draft",
       "slug": "twitter-node-server",
-      "frontEndTagList": ["ReactJS", "NextJS"],
-      "backEndTagList": ["NodeJS", "Docker", "JSON Server", "ExpressJS"],
-      "dbTagList": ["MongoDB", "AWS"],
+      "frontEndTagList": [
+        "React components with TypeScript for UI development",
+        "NextJS for server-side rendering, ISR, and static site generation",
+        "useSWR for state management"
+      ],
+      "backEndTagList": [
+        "NodeJS for server-side development",
+        "Docker for containerization",
+        "GitHub Action for continuous integration and deployment",
+        "JSON Server for to build fake APIs",
+        "ExpressJS to configure routes and handle requests"
+      ],
+      "dbTagList": ["MongoDB for data storage", "AWS for cloud storage"],
       "thumbnailUrl": "https://images.unsplash.com/photo-1611162618479-ee3d24aaef0b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8VHdpdHRlcnxlbnwwfHwwfHx8MA%3D%3D",
       "tagList": ["NodeJS", "MongoDB", "Docker", "GitHub Action", "JSON Server"],
       "fullDescription": "",
@@ -70,9 +80,13 @@
       "title": "Dashboard",
       "status": "draft",
       "slug": "dashboard",
-      "frontEndTagList": ["ReactJS", "NextJS"],
-      "backEndTagList": ["NodeJS"],
-      "dbTagList": ["MongoDB"],
+      "frontEndTagList": [
+        "React components with TypeScript for UI development",
+        "NextJS for server-side rendering, ISR, and static site generation",
+        "useSWR for state management"
+      ],
+      "backEndTagList": ["NodeJS to handle server-side logic"],
+      "dbTagList": ["MongoDB to store data"],
       "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
       "tagList": ["Web", "TypeScript", "ReactJS", "NextJS", "MongoDB"],
       "fullDescription": "",
@@ -85,8 +99,12 @@
       "title": "Json-Server",
       "status": "draft",
       "slug": "json-server",
-      "frontEndTagList": ["TypeScript", "ReactJS"],
-      "backEndTagList": ["NodeJS", "ExpressJS", "JWT"],
+      "frontEndTagList": ["ReactJS, TypeScript for UI development"],
+      "backEndTagList": [
+        "NodeJS for server-side development",
+        "ExpressJS to configure routes and handle requests",
+        "JWT to implement for authentication"
+      ],
       "thumbnailUrl": "https://media.istockphoto.com/id/1903606349/photo/api-concept-application-programming-interface-connect-services-on-internet.webp?a=1&b=1&s=612x612&w=0&k=20&c=1Vjx3Fo2o5r8mOQxmujg0ddgSea_dj1tYmTTio150xA=",
       "tagList": ["TypeScript", "Faker", "ExpressJS", "NodeJS", "JWT"],
       "fullDescription": "",
@@ -99,7 +117,13 @@
       "title": "Photo-albums",
       "status": "draft",
       "slug": "photo-albums",
-      "frontEndTagList": ["TypeScript", "ReactJS", "Vite", "Tailwindcss", "Redux", "Firebase"],
+      "frontEndTagList": [
+        "TypeScript,ReactJS to handle UI development",
+        "Vite as a build tool",
+        "Tailwindcss for styling",
+        "Redux for state management",
+        "Firebase for authentication"
+      ],
       "thumbnailUrl": "https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvdG8lMjAlMjBhbGJ1bXN8ZW58MHx8MHx8fDA%3D",
       "tagList": ["TypeScript", "ReactJS", "Vite", "Tailwindcss", "Redux", "Firebase"],
       "fullDescription": "",
@@ -112,7 +136,7 @@
       "title": "Photo-Analysys",
       "status": "draft",
       "slug": "photo-analysys",
-      "frontEndTagList": ["Python", "Gradio"],
+      "frontEndTagList": ["Python for back-end development", "Gradio library for UI development"],
       "thumbnailUrl": "https://media.istockphoto.com/id/1311598658/photo/businessman-trading-online-stock-market-on-teblet-screen-digital-investment-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=IWQzVeh6--ZOe9YxB1-EI1KSWooYTpZS2sqe6Zu6GJM=",
       "tagList": ["Python", "Gradio"],
       "fullDescription": "",
@@ -125,7 +149,12 @@
       "title": "React-Query",
       "status": "draft",
       "slug": "react-query",
-      "frontEndTagList": ["ReactJS", "TypeScript", "Vite", "Tailwindcss", "React Query"],
+      "frontEndTagList": [
+        "ReactJS, TypeScript for UI development",
+        "Vite as a build tool",
+        "Tailwindcss for styling components",
+        "React Query for state management"
+      ],
       "thumbnailUrl": "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UmVhY3QlMjBRdWVyeXxlbnwwfHwwfHx8MA%3D%3D",
       "tagList": ["ReactJS", "TypeScript", "Vite", "Tailwindcss", "React Query"],
       "fullDescription": "",
@@ -137,7 +166,11 @@
       "id": "604356c6-13ea-4c2f-9211-66922785a3e8",
       "title": "AI-Chatbot",
       "status": "draft",
-      "frontEndTagList": ["Gradio", "ReactJS", "Vite"],
+      "frontEndTagList": [
+        "Gradio to build fast UI ChatBot application with Python",
+        "ReactJS for UI development",
+        "Vite as a build tool"
+      ],
       "backEndTagList": ["Python"],
       "slug": "ai-chatbot",
       "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1725907643567-1694c2737432?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWklMjBjaGF0Ym90fGVufDB8fDB8fHww",
@@ -154,8 +187,15 @@
       "slug": "ai-generate-image",
       "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1726556396492-de930dd1c9bd?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGFpJTIwY2hhdGJvdHxlbnwwfHwwfHx8MA%3D%3D",
       "tagList": ["Python", "Gradio", "Stable Diffusion", "ReactJS", "Vite"],
-      "frontEndTagList": ["ReactJS", "Vite", "Gradio"],
-      "backEndTagList": ["Python", "Stable Diffusion"],
+      "frontEndTagList": [
+        "Gradio to build fast UI ChatBot application with Python",
+        "ReactJS for UI development",
+        "Vite as a build tool"
+      ],
+      "backEndTagList": [
+        "Python for back-end development",
+        "Stable Diffusion to config AI and generate image"
+      ],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -166,7 +206,12 @@
       "title": "Frontend-Unit-Test",
       "status": "draft",
       "slug": "react-unit-test",
-      "frontEndTagList": ["ReactJS", "Vite", "React Testing Library", "Jest"],
+      "frontEndTagList": [
+        "ReactJS for UI development",
+        "Vite as a build tool",
+        "React Testing Library for UI testing",
+        "Jest for unit testing"
+      ],
       "backEndTagList": [],
       "thumbnailUrl": "https://images.unsplash.com/photo-1593720217529-01f0a5d09aed?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
       "tagList": ["ReactJS", "Vite", "React Testing Library", "Jest"],
