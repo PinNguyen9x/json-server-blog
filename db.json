@@ -107,10 +107,10 @@
       ],
       "thumbnailUrl": "https://media.istockphoto.com/id/1903606349/photo/api-concept-application-programming-interface-connect-services-on-internet.webp?a=1&b=1&s=612x612&w=0&k=20&c=1Vjx3Fo2o5r8mOQxmujg0ddgSea_dj1tYmTTio150xA=",
       "tagList": ["TypeScript", "Faker", "ExpressJS", "NodeJS", "JWT"],
-      "fullDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">**json-server**</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete) and is ideal for developing or testing web applications without a complex backend. It is easy to configure, flexible, and extensible, making it a powerful tool for prototyping, front-end integration, and rapid iteration. Additionally, it allows custom routes and middleware, offering greater control and adaptability for developers.",
+      "fullDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">json-server</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete) and is ideal for developing or testing web applications without a complex backend. It is easy to configure, flexible, and extensible, making it a powerful tool for prototyping, front-end integration, and rapid iteration. Additionally, it allows custom routes and middleware, offering greater control and adaptability for developers.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">**json-server**</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete)."
+      "shortDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">json-server</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete)."
     },
     {
       "id": "e09bf720-0989-445c-b0bb-457ec99c8dd8",
@@ -129,7 +129,7 @@
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Photo-Albums</span> application allows users to manage personal photos by organizing them into albums. Users can create albums, add, delete photos, and fetch random images from the <span style=\"font-weight: 700; font-style: italic;\">Picsum</span> API. The interface is simple, providing an effective experience for managing and sharing photos.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">**Photo-Albums**</span> application allows users to manage personal photos by organizing them into albums. Users can create albums, add, delete photos..."
+      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Photo-Albums</span> application allows users to manage personal photos by organizing them into albums. Users can create albums, add, delete photos..."
     },
     {
       "id": "e85672df-975e-4813-bedb-68b3f1cb7c2b",
@@ -139,10 +139,10 @@
       "frontEndTagList": ["Python for back-end development", "Gradio library for UI development"],
       "thumbnailUrl": "https://media.istockphoto.com/id/1311598658/photo/businessman-trading-online-stock-market-on-teblet-screen-digital-investment-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=IWQzVeh6--ZOe9YxB1-EI1KSWooYTpZS2sqe6Zu6GJM=",
       "tagList": ["Python", "Gradio"],
-      "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">**Photo-Analysis**</span> application analyzes the content of uploaded images. It uses AI to detect and identify objects, scenes, and other visual elements within the photo. The app provides insights and descriptions, helping users understand the content through automated image analysis. Simple and efficient for content recognition tasks, it supports various image formats and delivers results quickly. Users can leverage this tool for applications such as photo cataloging, content moderation, or enhancing user experiences in digital platforms",
+      "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Photo-Analysis</span> application analyzes the content of uploaded images. It uses AI to detect and identify objects, scenes, and other visual elements within the photo. The app provides insights and descriptions, helping users understand the content through automated image analysis. Simple and efficient for content recognition tasks, it supports various image formats and delivers results quickly. Users can leverage this tool for applications such as photo cataloging, content moderation, or enhancing user experiences in digital platforms",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">**Photo-Analysis**</span> application analyzes the content of uploaded images. It uses AI to detect and identify objects, scenes, and other visual elements within the photo."
+      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Photo-Analysis</span> application analyzes the content of uploaded images. It uses AI to detect and identify objects, scenes, and other visual elements within the photo."
     },
     {
       "id": "b136a089-8088-4be4-ba76-9abea7db9028",
