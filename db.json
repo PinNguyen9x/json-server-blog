@@ -88,7 +88,7 @@
       "frontEndTagList": ["TypeScript", "ReactJS"],
       "backEndTagList": ["NodeJS", "ExpressJS", "JWT"],
       "thumbnailUrl": "https://media.istockphoto.com/id/1903606349/photo/api-concept-application-programming-interface-connect-services-on-internet.webp?a=1&b=1&s=612x612&w=0&k=20&c=1Vjx3Fo2o5r8mOQxmujg0ddgSea_dj1tYmTTio150xA=",
-      "tagList": ["TypeScript", "Faker", "ExpressJS"],
+      "tagList": ["TypeScript", "Faker", "ExpressJS", "NodeJS", "JWT"],
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
