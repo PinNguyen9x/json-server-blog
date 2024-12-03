@@ -35,6 +35,8 @@
       "fullDescription": "A TypeScript Tic-Tac-Toe game where players take turns marking The <span style=\"font-weight: 700; font-style: italic;\">X and O on a 3x3 grid</span>, with the winner determined by three aligned marks",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "",
+      "linkSource": "",
       "shortDescription": "A TypeScript Tic-Tac-Toe game where players take turns marking The <span style=\"font-weight: 700; font-style: italic;\">X and O on a 3x3 grid</span>, with the winner determined by three aligned marks"
     },
     {
@@ -48,6 +50,8 @@
       "fullDescription": "",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "",
+      "linkSource": "",
       "shortDescription": "A TypeScript-based Color Matching game where players swap tiles to align three or more of the same color, with increasing difficulty and challenges as they progress."
     },
     {
@@ -73,6 +77,8 @@
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Twitter-Node-Server</span> application integrates with the Twitter API to fetch and display tweets. It allows users to interact with Twitter data, providing a backend service for managing and retrieving tweets efficiently.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "",
+      "linkSource": "",
       "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Twitter-Node-Server</span> application integrates with the Twitter API to fetch and display tweets. It allows users to interact with Twitter data, providing a backend service for managing and retrieving tweets efficiently."
     },
     {
@@ -92,6 +98,8 @@
       "fullDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "https://leaning-system.vercel.app/",
+      "linkSource": "https://github.com/PinNguyen9x/Leaning-system",
       "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
     },
     {
@@ -110,6 +118,8 @@
       "fullDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">json-server</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete) and is ideal for developing or testing web applications without a complex backend. It is easy to configure, flexible, and extensible, making it a powerful tool for prototyping, front-end integration, and rapid iteration. Additionally, it allows custom routes and middleware, offering greater control and adaptability for developers.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "https://json-server-blog.vercel.app/",
+      "linkSource": "https://github.com/PinNguyen9x/json-server-blog",
       "shortDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">json-server</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete)."
     },
     {
@@ -129,6 +139,8 @@
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Photo-Albums</span> application allows users to manage personal photos by organizing them into albums. Users can create albums, add, delete photos, and fetch random images from the <span style=\"font-weight: 700; font-style: italic;\">Picsum</span> API. The interface is simple, providing an effective experience for managing and sharing photos.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "https://photo-app-rouge.vercel.app/photos",
+      "linkSource": "https://github.com/PinNguyen9x/photo-app",
       "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Photo-Albums</span> application allows users to manage personal photos by organizing them into albums. Users can create albums, add, delete photos..."
     },
     {
@@ -142,6 +154,8 @@
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Photo-Analysis</span> application analyzes the content of uploaded images. It uses AI to detect and identify objects, scenes, and other visual elements within the photo. The app provides insights and descriptions, helping users understand the content through automated image analysis. Simple and efficient for content recognition tasks, it supports various image formats and delivers results quickly. Users can leverage this tool for applications such as photo cataloging, content moderation, or enhancing user experiences in digital platforms",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "",
+      "linkSource": "https://github.com/PinNguyen9x/photoanalysis",
       "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Photo-Analysis</span> application analyzes the content of uploaded images. It uses AI to detect and identify objects, scenes, and other visual elements within the photo."
     },
     {
@@ -160,6 +174,8 @@
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Research React-Query</span> application demonstrates the usage of React Query for data fetching, caching, and synchronization in React applications.It showcases features like automatic updates, background refetching, and seamless state management, offering a robust solution for handling server-side data. The app includes practical examples and custom configurations, making it an excellent resource for developers exploring React Query's capabilities in real-world scenarios.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "",
+      "linkSource": "",
       "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Research React-Query</span> application demonstrates the usage of React Query for data fetching, caching, and synchronization in React applications..."
     },
     {
@@ -178,6 +194,8 @@
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">AI-Chatbot</span> application utilizes <span style=\"font-weight: 700; font-style: italic;\">OpenAI's</span> and <span style=\"font-weight: 700; font-style: italic;\">Claude's</span> chat APIs to provide intelligent, interactive conversations. It leverages AI to understand and respond to user inputs, offering personalized chatbot experiences.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "https://react-chat-bot-beige.vercel.app/",
+      "linkSource": "https://github.com/PinNguyen9x/ReactChatBot",
       "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">AI-Chatbot</span> application utilizes OpenAI's and Claude's chat APIs to provide intelligent, interactive conversations..."
     },
     {
@@ -199,6 +217,8 @@
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">AI-Generate-Image</span> application uses Stable Diffusion technology to create images from text prompts. It leverages AI to generate high-quality, customized visuals based on user input, enabling creative image generation.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "",
+      "linkSource": "",
       "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">AI-Generate-Image</span> application uses Stable Diffusion technology to create images from text prompts..."
     },
     {
@@ -218,6 +238,8 @@
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Frontend-Unit-Test Research</span> application explores unit testing in React using <span style=\"font-weight: 700; font-style: italic;\">React Testing Library and Jest</span>. It focuses on writing and executing tests to ensure component functionality, promoting robust and maintainable frontend code.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
+      "linkDemo": "",
+      "linkSource": "https://github.com/PinNguyen9x/React-UnitTest",
       "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Frontend-Unit-Test Research</span> application explores unit testing in React using **React Testing Library** and **Jest**..."
     }
   ],
