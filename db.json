@@ -174,8 +174,8 @@
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Research React-Query</span> application demonstrates the usage of React Query for data fetching, caching, and synchronization in React applications.It showcases features like automatic updates, background refetching, and seamless state management, offering a robust solution for handling server-side data. The app includes practical examples and custom configurations, making it an excellent resource for developers exploring React Query's capabilities in real-world scenarios.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "linkDemo": "",
-      "linkSource": "",
+      "linkDemo": "https://vercel.com/pinnguyen9xs-projects/react-query",
+      "linkSource": "https://github.com/PinNguyen9x/react-query/tree/main",
       "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Research React-Query</span> application demonstrates the usage of React Query for data fetching, caching, and synchronization in React applications..."
     },
     {
