@@ -265,5 +265,11 @@
     "ExpressJS",
     "NextJS",
     "React Query"
-  ]
+  ],
+  "publish-profile": {
+    "id": "b136a089-8088-4be4-ba76-9abea7db9028",
+    "name": "Pin Nguyen",
+    "city": "Ho Chi Minh City",
+    "email": "pin@gmail.com"
+  }
 }
