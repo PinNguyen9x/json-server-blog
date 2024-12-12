@@ -71,7 +71,7 @@ const swaggerOptions = {
     servers: [
       {
         url: process.env.VERCEL_URL
-          ? `https://${process.env.VERCEL_URL}/api`
+          ? 'json-server-blog.vercel.app/api'
           : 'http://localhost:3000/api',
         description: 'API Server',
       },
