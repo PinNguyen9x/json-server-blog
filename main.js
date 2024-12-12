@@ -450,6 +450,34 @@ router.render = (req, res) => {
   res.jsonp(res.locals.data);
 };
 
+// Add custom route for root path
+server.get('/', (req, res) => {
+  res.send(`
+    <html>
+      <head>
+        <title>JSON Server</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      </head>
+      <body>
+        <div class="container mt-5">
+          <div class="jumbotron">
+            <h1 class="display-4">Welcome to JSON Server!</h1>
+            <p class="lead">Congratulations! You've successfully started JSON Server 🎉</p>
+            <hr class="my-4">
+            <p>Available Resources:</p>
+            <ul>
+              <li><a href="/api/posts">/api/posts</a></li>
+              <li><a href="/api/works">/api/works</a></li>
+              <li><a href="/api/profile">/api/profile</a></li>
+            </ul>
+            <p>View API documentation at: <a href="/api-docs">/api-docs</a></p>
+          </div>
+        </div>
+      </body>
+    </html>
+  `);
+});
+
 // Use default router
 server.use('/api', router);
 
