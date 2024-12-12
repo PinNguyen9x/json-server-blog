@@ -6,18 +6,272 @@ const path = require('path');
 const jwt = require('jsonwebtoken');
 const faker = require('faker');
 const swaggerUi = require('swagger-ui-express');
-const YAML = require('yamljs');
+const swaggerJsdoc = require('swagger-jsdoc');
 
 const server = jsonServer.create();
 const db = JSON.parse(fs.readFileSync(path.join('db.json')));
 const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
 
-// Load Swagger document from YAML file
-const swaggerDocument = YAML.load(path.join(__dirname, 'swagger.yaml'));
+// Define Swagger options
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.3',
+    info: {
+      title: 'JSON Server API',
+      description: 'API documentation for JSON Server endpoints',
+      version: '1.0.0',
+    },
+    security: [
+      {
+        BearerAuth: [],
+      },
+    ],
+    servers: [
+      {
+        url: 'http://localhost:3000/api',
+        description: 'Local development server',
+      },
+    ],
+    components: {
+      securitySchemes: {
+        BearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
+      schemas: {
+        Post: {
+          type: 'object',
+          properties: {
+            id: { type: 'string', format: 'uuid' },
+            title: { type: 'string' },
+            author: { type: 'string' },
+            createdAt: { type: 'integer', format: 'int64' },
+            updatedAt: { type: 'integer', format: 'int64' },
+            slug: { type: 'string' },
+            publishedDate: { type: 'string', format: 'date-time' },
+            tagList: { type: 'array', items: { type: 'string' } },
+            description: { type: 'string' },
+          },
+        },
+        Work: {
+          type: 'object',
+          properties: {
+            id: { type: 'string', format: 'uuid' },
+            title: { type: 'string' },
+            status: { type: 'string', enum: ['published', 'draft'] },
+            slug: { type: 'string' },
+            frontEndTagList: { type: 'array', items: { type: 'string' } },
+            thumbnailUrl: { type: 'string' },
+            tagList: { type: 'array', items: { type: 'string' } },
+            fullDescription: { type: 'string' },
+            shortDescription: { type: 'string' },
+            createdAt: { type: 'string' },
+            updatedAt: { type: 'string' },
+            linkDemo: { type: 'string' },
+            linkSource: { type: 'string' },
+          },
+        },
+        LoginRequest: {
+          type: 'object',
+          required: ['username', 'password'],
+          properties: {
+            username: { type: 'string', minimum: 4 },
+            password: { type: 'string', minimum: 6 },
+          },
+        },
+        LoginResponse: {
+          type: 'object',
+          properties: {
+            access_token: { type: 'string' },
+            expiredAt: { type: 'integer', format: 'int64' },
+          },
+        },
+        Profile: {
+          type: 'object',
+          properties: {
+            id: { type: 'string', format: 'uuid' },
+            username: { type: 'string' },
+            email: { type: 'string' },
+            city: { type: 'string' },
+          },
+        },
+      },
+    },
+    paths: {
+      '/posts': {
+        get: {
+          tags: ['Posts'],
+          summary: 'Get all posts',
+          security: [{ BearerAuth: [] }],
+          parameters: [
+            {
+              in: 'query',
+              name: '_page',
+              schema: { type: 'integer' },
+              description: 'Page number',
+            },
+            {
+              in: 'query',
+              name: '_limit',
+              schema: { type: 'integer' },
+              description: 'Number of items per page',
+            },
+          ],
+          responses: {
+            200: {
+              description: 'Successful response',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      data: {
+                        type: 'array',
+                        items: { $ref: '#/components/schemas/Post' },
+                      },
+                      pagination: {
+                        type: 'object',
+                        properties: {
+                          _page: { type: 'integer' },
+                          _limit: { type: 'integer' },
+                          _totalRows: { type: 'integer' },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      '/works': {
+        get: {
+          tags: ['Works'],
+          summary: 'Get all works',
+          security: [{ BearerAuth: [] }],
+          parameters: [
+            {
+              in: 'query',
+              name: '_page',
+              schema: { type: 'integer' },
+            },
+            {
+              in: 'query',
+              name: '_limit',
+              schema: { type: 'integer' },
+            },
+          ],
+          responses: {
+            200: {
+              description: 'Successful response',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      data: {
+                        type: 'array',
+                        items: { $ref: '#/components/schemas/Work' },
+                      },
+                      pagination: {
+                        type: 'object',
+                        properties: {
+                          _page: { type: 'integer' },
+                          _limit: { type: 'integer' },
+                          _totalRows: { type: 'integer' },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      '/login': {
+        post: {
+          tags: ['Authentication'],
+          summary: 'Login to get access token',
+          requestBody: {
+            required: true,
+            content: {
+              'application/json': {
+                schema: { $ref: '#/components/schemas/LoginRequest' },
+              },
+            },
+          },
+          responses: {
+            200: {
+              description: 'Successful login',
+              content: {
+                'application/json': {
+                  schema: { $ref: '#/components/schemas/LoginResponse' },
+                },
+              },
+            },
+            401: {
+              description: 'Unauthorized',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      status: { type: 'integer' },
+                      message: { type: 'string' },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      '/profile': {
+        get: {
+          tags: ['Profile'],
+          summary: 'Get user profile',
+          security: [{ BearerAuth: [] }],
+          responses: {
+            200: {
+              description: 'Successful response',
+              content: {
+                'application/json': {
+                  schema: { $ref: '#/components/schemas/Profile' },
+                },
+              },
+            },
+            401: {
+              description: 'Unauthorized',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      status: { type: 'integer' },
+                      message: { type: 'string' },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  apis: [], // You can leave this empty since we're defining everything inline
+};
 
-// Add this before your routes (after middleware setup)
-server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// Initialize swagger-jsdoc
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+// Use swagger-ui-express to serve the Swagger docs
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // server.use(cookieParser());
 server.use(bodyParser.urlencoded({ extended: true }));
