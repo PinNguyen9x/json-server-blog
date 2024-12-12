@@ -270,8 +270,16 @@ const swaggerOptions = {
 // Initialize swagger-jsdoc
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 
-// Use swagger-ui-express to serve the Swagger docs
-server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+// Serve Swagger JSON
+server.get('/api-docs/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
+
+// Serve Swagger UI at /api-docs
+server.get('/api-docs', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'swagger.html'));
+});
 
 // server.use(cookieParser());
 server.use(bodyParser.urlencoded({ extended: true }));

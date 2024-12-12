@@ -3,16 +3,25 @@
   "builds": [
     {
       "src": "main.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["db.json"]
-      }
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/api-docs",
+      "dest": "/public/swagger.html"
+    },
+    {
+      "src": "/api-docs/(.*)",
+      "dest": "/main.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "main.js"
+      "dest": "/main.js"
     }
   ]
 }
