@@ -13,11 +13,25 @@
   "routes": [
     {
       "src": "/api-docs",
-      "dest": "/public/swagger.html"
+      "dest": "/public/swagger.html",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+      }
     },
     {
       "src": "/api-docs/(.*)",
       "dest": "/main.js"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/main.js",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept, Authorization"
+      }
     },
     {
       "src": "/(.*)",
