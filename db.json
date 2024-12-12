@@ -118,7 +118,7 @@
       "fullDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">json-server</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete) and is ideal for developing or testing web applications without a complex backend. It is easy to configure, flexible, and extensible, making it a powerful tool for prototyping, front-end integration, and rapid iteration. Additionally, it allows custom routes and middleware, offering greater control and adaptability for developers.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "linkDemo": "https://json-server-blog.vercel.app/",
+      "linkDemo": "https://json-server-blog.vercel.app/api-docs",
       "linkSource": "https://github.com/PinNguyen9x/json-server-blog",
       "shortDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">json-server</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete)."
     },
