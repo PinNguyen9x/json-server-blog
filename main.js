@@ -10,14 +10,46 @@ const swaggerJsdoc = require('swagger-jsdoc');
 
 const server = jsonServer.create();
 
-// Instead of reading from file, define the initial data directly
-const db = {
-  posts: [],
-  works: [],
-  profile: {},
+// Create/update db.json file with initial data
+const dbPath = path.join(__dirname, 'db.json');
+const initialData = {
+  posts: [
+    {
+      id: '1',
+      title: 'First Post',
+      author: 'John Doe',
+      // ... other post properties
+    },
+  ],
+  works: [
+    {
+      id: '1',
+      title: 'Project 1',
+      status: 'published',
+      // ... other work properties
+    },
+  ],
+  profile: {
+    id: '1',
+    username: 'admin',
+    email: 'admin@example.com',
+    city: 'Example City',
+  },
 };
 
-const router = jsonServer.router(db); // Use the in-memory db object
+// Write initial data to db.json if it doesn't exist
+try {
+  if (!fs.existsSync(dbPath)) {
+    fs.writeFileSync(dbPath, JSON.stringify(initialData, null, 2), 'utf8');
+    console.log('Created new db.json file with initial data');
+  }
+} catch (err) {
+  console.error('Error creating db.json:', err);
+}
+
+// Use the physical db.json file instead of in-memory object
+const router = jsonServer.router(dbPath);
+
 const middlewares = jsonServer.defaults({
   static: path.join(__dirname, 'public'),
 });
