@@ -5,12 +5,19 @@ const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken');
 const faker = require('faker');
-// const cookieParser = require('cookie-parser');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
 
 const server = jsonServer.create();
 const db = JSON.parse(fs.readFileSync(path.join('db.json')));
 const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
+
+// Load Swagger document from YAML file
+const swaggerDocument = YAML.load(path.join(__dirname, 'swagger.yaml'));
+
+// Add this before your routes (after middleware setup)
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // server.use(cookieParser());
 server.use(bodyParser.urlencoded({ extended: true }));

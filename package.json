@@ -18,9 +18,14 @@
     "cookie-parser": "^1.4.7",
     "json-server": "^0.16.3",
     "jsonwebtoken": "^8.1.0",
-    "query-string": "^7.0.0"
+    "query-string": "^7.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.7",
     "faker": "^5.5.0",
     "nodemon": "^3.1.7"
   }
