@@ -9,9 +9,18 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 
 const server = jsonServer.create();
-const db = JSON.parse(fs.readFileSync(path.join('db.json')));
-const router = jsonServer.router(db);
-const middlewares = jsonServer.defaults();
+
+// Instead of reading from file, define the initial data directly
+const db = {
+  posts: [],
+  works: [],
+  profile: {},
+};
+
+const router = jsonServer.router(db); // Use the in-memory db object
+const middlewares = jsonServer.defaults({
+  static: path.join(__dirname, 'public'),
+});
 
 // Define Swagger options
 const swaggerOptions = {
@@ -29,8 +38,10 @@ const swaggerOptions = {
     ],
     servers: [
       {
-        url: 'http://localhost:3000/api',
-        description: 'Local development server',
+        url: process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}/api`
+          : 'http://localhost:3000/api',
+        description: 'API Server',
       },
     ],
     components: {
@@ -264,7 +275,7 @@ const swaggerOptions = {
       },
     },
   },
-  apis: [], // You can leave this empty since we're defining everything inline
+  apis: [],
 };
 
 // Initialize swagger-jsdoc
