@@ -230,7 +230,13 @@
         "ReactJS for UI development",
         "Vite as a build tool",
         "React Testing Library for UI testing",
-        "Jest for unit testing"
+        "Jest for unit testing",
+        "URL-based API mocking to create mock data",
+        "Using a Mock Service Worker (MSW) - Recommended for Complex Apps to mock API calls",
+        "Snapshot testing",
+        "Testing Navigation",
+        "Testing Form UI",
+        "Testing Custom Hooks"
       ],
       "backEndTagList": [],
       "thumbnailUrl": "https://images.unsplash.com/photo-1593720217529-01f0a5d09aed?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
