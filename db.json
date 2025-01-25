@@ -194,8 +194,8 @@
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">AI-Chatbot</span> application utilizes <span style=\"font-weight: 700; font-style: italic;\">OpenAI's</span> and <span style=\"font-weight: 700; font-style: italic;\">Claude's</span> chat APIs to provide intelligent, interactive conversations. It leverages AI to understand and respond to user inputs, offering personalized chatbot experiences.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
-      "linkDemo": "https://react-chat-bot-beige.vercel.app/",
-      "linkSource": "https://github.com/PinNguyen9x/ReactChatBot",
+      "linkDemo": "https://chat-box-sooty.vercel.app",
+      "linkSource": "https://github.com/PinNguyen9x/chat-box",
       "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">AI-Chatbot</span> application utilizes OpenAI's and Claude's chat APIs to provide intelligent, interactive conversations..."
     },
     {
