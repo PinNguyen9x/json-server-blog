@@ -272,6 +272,70 @@ const swaggerOptions = {
           },
         },
       },
+      '/cv/info': {
+        get: {
+          tags: ['CV'],
+          summary: 'Get CV metadata (auth required)',
+          security: [{ BearerAuth: [] }],
+          responses: {
+            200: {
+              description: 'CV metadata',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      filename: { type: 'string' },
+                      sizeBytes: { type: 'integer' },
+                      updatedAt: { type: 'integer', format: 'int64' },
+                    },
+                  },
+                },
+              },
+            },
+            401: { description: 'Unauthorized' },
+            404: { description: 'CV file not found' },
+          },
+        },
+      },
+      '/cv/download': {
+        get: {
+          tags: ['CV'],
+          summary: 'Download CV as PDF (auth required)',
+          security: [{ BearerAuth: [] }],
+          responses: {
+            200: {
+              description: 'PDF stream',
+              content: {
+                'application/pdf': {
+                  schema: { type: 'string', format: 'binary' },
+                },
+              },
+            },
+            401: { description: 'Unauthorized' },
+            404: { description: 'CV file not found' },
+          },
+        },
+      },
+      '/cv/view': {
+        get: {
+          tags: ['CV'],
+          summary: 'View CV inline as PDF (auth required)',
+          security: [{ BearerAuth: [] }],
+          responses: {
+            200: {
+              description: 'PDF stream rendered inline',
+              content: {
+                'application/pdf': {
+                  schema: { type: 'string', format: 'binary' },
+                },
+              },
+            },
+            401: { description: 'Unauthorized' },
+            404: { description: 'CV file not found' },
+          },
+        },
+      },
       '/profile': {
         get: {
           tags: ['Profile'],
@@ -347,6 +411,69 @@ function isAuthenticated({ username, password }) {
   if (!username || !password) return false;
   return username.trim().length >= 4 && password.trim().length >= 6;
 }
+
+// Express-style middleware to enforce a valid Bearer token. On success it sets
+// req.user from the JWT payload; on failure it short-circuits with 401.
+function requireAuth(req, res, next) {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || authHeader.split(' ')[0] !== 'Bearer') {
+    return res.status(401).json({ status: 401, message: 'Error in authorization format' });
+  }
+  const token = authHeader.split(' ')[1];
+  const verified = verifyToken(token);
+  if (verified instanceof Error) {
+    return res.status(401).json({ status: 401, message: 'Access token not provided' });
+  }
+  req.user = verified;
+  next();
+}
+
+// CV (resume) — protected. Static file lives in public/cv/cv.pdf so it's
+// included in the Vercel deployment, but the download itself is gated behind
+// a valid Bearer token so only authenticated users can pull it.
+const CV_FILE_PATH = path.join(__dirname, 'public', 'cv', 'cv.pdf');
+const CV_DOWNLOAD_FILENAME = 'CV_Nguyen_Thanh_Pin.pdf';
+
+server.get('/api/cv/info', requireAuth, (req, res) => {
+  try {
+    const stat = fs.statSync(CV_FILE_PATH);
+    res.status(200).json({
+      filename: CV_DOWNLOAD_FILENAME,
+      sizeBytes: stat.size,
+      updatedAt: stat.mtimeMs,
+    });
+  } catch (err) {
+    res.status(404).json({ status: 404, message: 'CV file not found' });
+  }
+});
+
+server.get('/api/cv/download', requireAuth, (req, res) => {
+  if (!fs.existsSync(CV_FILE_PATH)) {
+    return res.status(404).json({ status: 404, message: 'CV file not found' });
+  }
+  res.setHeader('Content-Type', 'application/pdf');
+  res.setHeader(
+    'Content-Disposition',
+    `attachment; filename="${CV_DOWNLOAD_FILENAME}"`,
+  );
+  fs.createReadStream(CV_FILE_PATH).pipe(res);
+});
+
+// Same PDF as /api/cv/download, but served inline so it renders in an <iframe>
+// or browser tab instead of triggering a file save. Still auth-gated.
+server.get('/api/cv/view', requireAuth, (req, res) => {
+  if (!fs.existsSync(CV_FILE_PATH)) {
+    return res.status(404).json({ status: 404, message: 'CV file not found' });
+  }
+  res.setHeader('Content-Type', 'application/pdf');
+  res.setHeader(
+    'Content-Disposition',
+    `inline; filename="${CV_DOWNLOAD_FILENAME}"`,
+  );
+  // Avoid stale embeds when the file is updated
+  res.setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
+  fs.createReadStream(CV_FILE_PATH).pipe(res);
+});
 
 server.get('/api/profile', async (req, res) => {
   if (
