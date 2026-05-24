@@ -4,23 +4,23 @@
       "id": "fd08ab72-886a-4861-aea9-ac65ca26cf14",
       "title": "Practical Micro Frontends: Building Scalable UIs",
       "author": "Pin Nguyen",
-      "createdAt": 1732519037788,
-      "updatedAt": 1732519037788,
-      "slug": "",
-      "publishedDate": "2024-06-15T03:00:00Z",
-      "tagList": ["Design", "Pattern"],
-      "description": "This post explores how to implement micro frontends by breaking down monolithic UIs into smaller, manageable pieces. Using tools like React, Webpack, and Module Federation, you'll learn how to create scalable, maintainable front-end applications that enhance team collaboration and project flexibility."
+      "createdAt": 1747008000000,
+      "updatedAt": 1747008000000,
+      "slug": "practical-micro-frontends-building-scalable-uis",
+      "publishedDate": "2026-05-11T08:00:00Z",
+      "tagList": ["Micro Frontends", "React", "Architecture"],
+      "description": "Tách monolith UI thành nhiều mảnh nhỏ, mỗi team tự build & deploy độc lập. Bài này giải thích Module Federation, routing, shared state, và pitfalls khi đưa Micro Frontends vào production."
     },
     {
       "id": "06a6d004-8153-43f1-9248-7a06d8295827",
       "title": "Large Language Model (LLM) & Chatbox",
       "author": "Pin Nguyen",
-      "createdAt": 1732519037788,
-      "updatedAt": 1732519037788,
-      "slug": "",
-      "publishedDate": "2024-06-16T03:00:00Z",
-      "tagList": ["AI", "Mechine Learning"],
-      "description": "This is a model that provides a general introduction to AI chatbots, large language models (LLMs), how to apply them in the workplace, essential knowledge about AI and prompts, their advantages and disadvantages, key terms related to LLMs, and tools that help enhance productivity for developers."
+      "createdAt": 1747094400000,
+      "updatedAt": 1747094400000,
+      "slug": "large-language-model-llm-and-chatbox",
+      "publishedDate": "2026-05-12T08:00:00Z",
+      "tagList": ["LLM", "AI", "Chatbot"],
+      "description": "LLM hoạt động như thế nào? Token, context window, prompt, RAG, function calling là gì? Cách build 1 chatbox đơn giản và áp dụng AI vào công việc hàng ngày của developer."
     }
   ],
   "works": [
