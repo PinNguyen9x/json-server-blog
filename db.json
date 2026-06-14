@@ -8,7 +8,11 @@
       "updatedAt": 1747008000000,
       "slug": "practical-micro-frontends-building-scalable-uis",
       "publishedDate": "2026-05-11T08:00:00Z",
-      "tagList": ["Micro Frontends", "React", "Architecture"],
+      "tagList": [
+        "Micro Frontends",
+        "React",
+        "Architecture"
+      ],
       "description": "Tách monolith UI thành nhiều mảnh nhỏ, mỗi team tự build & deploy độc lập. Bài này giải thích Module Federation, routing, shared state, và pitfalls khi đưa Micro Frontends vào production."
     },
     {
@@ -19,7 +23,11 @@
       "updatedAt": 1747094400000,
       "slug": "large-language-model-llm-and-chatbox",
       "publishedDate": "2026-05-12T08:00:00Z",
-      "tagList": ["LLM", "AI", "Chatbot"],
+      "tagList": [
+        "LLM",
+        "AI",
+        "Chatbot"
+      ],
       "description": "LLM hoạt động như thế nào? Token, context window, prompt, RAG, function calling là gì? Cách build 1 chatbox đơn giản và áp dụng AI vào công việc hàng ngày của developer."
     }
   ],
@@ -29,12 +37,19 @@
       "title": "Game Color Matching",
       "slug": "game-color-matching",
       "status": "published",
-      "frontEndTagList": ["TypeScript to handle game logic", "MUI to style the game board"],
+      "frontEndTagList": [
+        "TypeScript to handle game logic",
+        "MUI to style the game board"
+      ],
       "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1681843681830-7d4b70a435c1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sb3J8ZW58MHx8MHx8fDA%3D",
-      "tagList": ["Game", "Web", "TypeScript"],
-      "fullDescription": "",
+      "tagList": [
+        "Game",
+        "Web",
+        "TypeScript"
+      ],
+      "fullDescription": "## Architecture\n\n```mermaid\nflowchart LR\n  UI[Next.js Pages] --> API[json-server API]\n  API --> DB[(Works DB)]\n  API --> CDN[Cloudinary]\n```\n\n## Key decisions & trade-offs\n\n> **SSG + ISR** thay vì SSR vì traffic thấp, ưu tiên TTFB.\n\nGame logic dùng TypeScript thuần:\n\n```ts\nconst isMatch = (a: Cell, b: Cell) => a.color === b.color\n```\n\n## Risks & Issues\n\n> **Issue:** Build fail khi backend offline -> xu ly bang `safeFetchJson`.",
       "createdAt": "1722091716231",
-      "updatedAt": "1722091716231",
+      "updatedAt": 1780214499456,
       "linkDemo": "",
       "linkSource": "",
       "shortDescription": "A TypeScript-based Color Matching game where players swap tiles to align three or more of the same color, with increasing difficulty and challenges as they progress."
@@ -48,10 +63,15 @@
         "ReactJS for UI development",
         "Vite as a build tool"
       ],
-      "backEndTagList": ["Python"],
+      "backEndTagList": [
+        "Python"
+      ],
       "slug": "ai-chatbot",
       "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1725907643567-1694c2737432?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWklMjBjaGF0Ym90fGVufDB8fDB8fHww",
-      "tagList": ["Python", "Gradio"],
+      "tagList": [
+        "Python",
+        "Gradio"
+      ],
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">AI-Chatbot</span> application utilizes <span style=\"font-weight: 700; font-style: italic;\">OpenAI's</span> and <span style=\"font-weight: 700; font-style: italic;\">Claude's</span> chat APIs to provide intelligent, interactive conversations. It leverages AI to understand and respond to user inputs, offering personalized chatbot experiences.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -76,9 +96,17 @@
         "JSON Server for to build fake APIs",
         "ExpressJS to configure routes and handle requests"
       ],
-      "dbTagList": ["MongoDB for data storage", "AWS for cloud storage"],
+      "dbTagList": [
+        "MongoDB for data storage",
+        "AWS for cloud storage"
+      ],
       "thumbnailUrl": "https://images.unsplash.com/photo-1611162618479-ee3d24aaef0b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8VHdpdHRlcnxlbnwwfHwwfHx8MA%3D%3D",
-      "tagList": ["NodeJS", "MongoDB", "Docker", "GitHub Action"],
+      "tagList": [
+        "NodeJS",
+        "MongoDB",
+        "Docker",
+        "GitHub Action"
+      ],
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Twitter-Node-Server</span> application integrates with the Twitter API to fetch and display tweets. It allows users to interact with Twitter data, providing a backend service for managing and retrieving tweets efficiently.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -96,10 +124,20 @@
         "NextJS for server-side rendering, ISR, and static site generation",
         "useSWR for state management"
       ],
-      "backEndTagList": ["NodeJS to handle server-side logic"],
-      "dbTagList": ["MongoDB to store data"],
+      "backEndTagList": [
+        "NodeJS to handle server-side logic"
+      ],
+      "dbTagList": [
+        "MongoDB to store data"
+      ],
       "thumbnailUrl": "https://media.istockphoto.com/id/1292897536/vi/vec-to/b%E1%BA%A3ng-%C4%91i%E1%BB%81u-khi%E1%BB%83n-%C4%91%E1%BB%93-h%E1%BB%8Da-th%C3%B4ng-tin-giao-di%E1%BB%87n-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-%C4%91%E1%BB%93-h%E1%BB%8Da-d%E1%BB%AF-li%E1%BB%87u-v%C3%A0-bi%E1%BB%83u-%C4%91%E1%BB%93-s%C3%A0ng-l%E1%BB%8Dc.jpg?s=612x612&w=0&k=20&c=w1zIeckEvKHq8IohmsCOOQdAkoM4-aQHP0SX0uu1SeE=",
-      "tagList": ["Web", "TypeScript", "ReactJS", "NextJS", "MongoDB"],
+      "tagList": [
+        "Web",
+        "TypeScript",
+        "ReactJS",
+        "NextJS",
+        "MongoDB"
+      ],
       "fullDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -112,14 +150,22 @@
       "title": "Json-Server",
       "status": "draft",
       "slug": "json-server",
-      "frontEndTagList": ["ReactJS, TypeScript for UI development"],
+      "frontEndTagList": [
+        "ReactJS, TypeScript for UI development"
+      ],
       "backEndTagList": [
         "NodeJS for server-side development",
         "ExpressJS to configure routes and handle requests",
         "JWT to implement for authentication"
       ],
       "thumbnailUrl": "https://media.istockphoto.com/id/1903606349/photo/api-concept-application-programming-interface-connect-services-on-internet.webp?a=1&b=1&s=612x612&w=0&k=20&c=1Vjx3Fo2o5r8mOQxmujg0ddgSea_dj1tYmTTio150xA=",
-      "tagList": ["TypeScript", "Faker", "ExpressJS", "NodeJS", "JWT"],
+      "tagList": [
+        "TypeScript",
+        "Faker",
+        "ExpressJS",
+        "NodeJS",
+        "JWT"
+      ],
       "fullDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">json-server</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete) and is ideal for developing or testing web applications without a complex backend. It is easy to configure, flexible, and extensible, making it a powerful tool for prototyping, front-end integration, and rapid iteration. Additionally, it allows custom routes and middleware, offering greater control and adaptability for developers.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -140,7 +186,14 @@
         "Firebase for authentication"
       ],
       "thumbnailUrl": "https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvdG8lMjAlMjBhbGJ1bXN8ZW58MHx8MHx8fDA%3D",
-      "tagList": ["TypeScript", "ReactJS", "Vite", "TailwindCSS", "Redux", "Firebase"],
+      "tagList": [
+        "TypeScript",
+        "ReactJS",
+        "Vite",
+        "TailwindCSS",
+        "Redux",
+        "Firebase"
+      ],
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Photo-Albums</span> application allows users to manage personal photos by organizing them into albums. Users can create albums, add, delete photos, and fetch random images from the <span style=\"font-weight: 700; font-style: italic;\">Picsum</span> API. The interface is simple, providing an effective experience for managing and sharing photos.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -153,9 +206,15 @@
       "title": "Photo-Analysys",
       "status": "draft",
       "slug": "photo-analysys",
-      "frontEndTagList": ["Python for back-end development", "Gradio library for UI development"],
+      "frontEndTagList": [
+        "Python for back-end development",
+        "Gradio library for UI development"
+      ],
       "thumbnailUrl": "https://media.istockphoto.com/id/1311598658/photo/businessman-trading-online-stock-market-on-teblet-screen-digital-investment-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=IWQzVeh6--ZOe9YxB1-EI1KSWooYTpZS2sqe6Zu6GJM=",
-      "tagList": ["Python", "Gradio"],
+      "tagList": [
+        "Python",
+        "Gradio"
+      ],
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Photo-Analysis</span> application analyzes the content of uploaded images. It uses AI to detect and identify objects, scenes, and other visual elements within the photo. The app provides insights and descriptions, helping users understand the content through automated image analysis. Simple and efficient for content recognition tasks, it supports various image formats and delivers results quickly. Users can leverage this tool for applications such as photo cataloging, content moderation, or enhancing user experiences in digital platforms",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -175,7 +234,13 @@
         "React Query for state management"
       ],
       "thumbnailUrl": "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UmVhY3QlMjBRdWVyeXxlbnwwfHwwfHx8MA%3D%3D",
-      "tagList": ["ReactJS", "TypeScript", "Vite", "TailwindCSS", "React Query"],
+      "tagList": [
+        "ReactJS",
+        "TypeScript",
+        "Vite",
+        "TailwindCSS",
+        "React Query"
+      ],
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Research React-Query</span> application demonstrates the usage of React Query for data fetching, caching, and synchronization in React applications.It showcases features like automatic updates, background refetching, and seamless state management, offering a robust solution for handling server-side data. The app includes practical examples and custom configurations, making it an excellent resource for developers exploring React Query's capabilities in real-world scenarios.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -189,7 +254,13 @@
       "status": "draft",
       "slug": "ai-generate-image",
       "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1726556396492-de930dd1c9bd?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGFpJTIwY2hhdGJvdHxlbnwwfHwwfHx8MA%3D%3D",
-      "tagList": ["Python", "Gradio", "Stable Diffusion", "ReactJS", "Vite"],
+      "tagList": [
+        "Python",
+        "Gradio",
+        "Stable Diffusion",
+        "ReactJS",
+        "Vite"
+      ],
       "frontEndTagList": [
         "Gradio to build fast UI ChatBot application with Python",
         "ReactJS for UI development",
@@ -225,7 +296,12 @@
       ],
       "backEndTagList": [],
       "thumbnailUrl": "https://images.unsplash.com/photo-1593720217529-01f0a5d09aed?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
-      "tagList": ["ReactJS", "Vite", "React Testing Library", "Jest"],
+      "tagList": [
+        "ReactJS",
+        "Vite",
+        "React Testing Library",
+        "Jest"
+      ],
       "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Frontend-Unit-Test Research</span> application explores unit testing in React using <span style=\"font-weight: 700; font-style: italic;\">React Testing Library and Jest</span>. It focuses on writing and executing tests to ensure component functionality, promoting robust and maintainable frontend code.",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
@@ -238,9 +314,16 @@
       "title": "Game tic tac toe",
       "status": "published",
       "slug": "game-tic-tac-toe",
-      "frontEndTagList": ["TypeScript to handle game logic", "MUI to style the game board"],
+      "frontEndTagList": [
+        "TypeScript to handle game logic",
+        "MUI to style the game board"
+      ],
       "thumbnailUrl": "https://plus.unsplash.com/premium_photo-1673735396428-d51dc2a7a62d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D",
-      "tagList": ["Game", "Web", "TypeScript"],
+      "tagList": [
+        "Game",
+        "Web",
+        "TypeScript"
+      ],
       "fullDescription": "A TypeScript Tic-Tac-Toe game where players take turns marking The <span style=\"font-weight: 700; font-style: italic;\">X and O on a 3x3 grid</span>, with the winner determined by three aligned marks",
       "createdAt": "1722091716231",
       "updatedAt": "1722091716231",
