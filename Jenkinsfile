@@ -41,6 +41,12 @@ pipeline {
               ssh -o StrictHostKeyChecking=no $VPS_HOST "gunzip | docker load"
           '''
         }
+        // Dọn tag cũ CÙNG REPO trên Mac (giữ tag hiện tại + latest), không đụng image khác
+        sh '''
+          docker images $IMAGE_NAME --format '{{.Repository}}:{{.Tag}}' \
+            | grep -v ":$IMAGE_TAG" | grep -v ":latest" \
+            | xargs -r docker rmi || true
+        '''
       }
     }
 
@@ -58,7 +64,7 @@ pipeline {
               cd $DEPLOY_DIR && \
               IMAGE=$IMAGE_NAME:$IMAGE_TAG \
               docker compose up -d --remove-orphans && \
-              docker image prune -f"
+              docker image prune -af"
           '''
         }
       }
