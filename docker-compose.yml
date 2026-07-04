@@ -1,0 +1,18 @@
+services:
+  api:
+    image: ${IMAGE:-json-server-blog:latest}
+    container_name: json-server-blog
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+    # Giữ dữ liệu db.json trên host để không mất khi redeploy (json-server ghi runtime)
+    volumes:
+      - ./db.json:/app/db.json
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:4000/api/posts?_limit=1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
