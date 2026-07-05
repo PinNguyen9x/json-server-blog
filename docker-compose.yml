@@ -1,7 +1,7 @@
 services:
   api:
     image: ${IMAGE:-ghcr.io/pinnguyen9x/json-server-blog:latest}
-    container_name: json-server-blog
+    container_name: ${CONTAINER:-json-server-blog}
     restart: unless-stopped
     # KHÔNG publish port ra host — chỉ truy cập nội bộ qua network webnet (ẩn khỏi internet)
     expose:
