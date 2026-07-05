@@ -29,8 +29,7 @@ pipeline {
           docker build \
             --platform linux/amd64 \
             --provenance=false \
-            -t $IMAGE:$IMAGE_TAG \
-            -t $IMAGE:latest .
+            -t $IMAGE:$IMAGE_TAG .
         '''
       }
     }
@@ -41,7 +40,6 @@ pipeline {
           sh '''
             echo "$GHCR_PAT" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
             docker push $IMAGE:$IMAGE_TAG
-            docker push $IMAGE:latest
             docker logout ghcr.io
           '''
         }
