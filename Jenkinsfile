@@ -28,6 +28,7 @@ pipeline {
         sh '''
           docker build \
             --platform linux/amd64 \
+            --provenance=false \
             -t $IMAGE:$IMAGE_TAG \
             -t $IMAGE:latest .
         '''
