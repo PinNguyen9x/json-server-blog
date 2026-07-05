@@ -50,6 +50,14 @@ pipeline {
       }
     }
 
+    stage('Approve deploy to PROD') {
+      steps {
+        timeout(time: 30, unit: 'MINUTES') {
+          input message: "Đã build & push ghcr #${env.BUILD_NUMBER}. Deploy backend lên PROD?", ok: 'Deploy ngay'
+        }
+      }
+    }
+
     stage('Deploy') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'ghcr-creds', usernameVariable: 'GHCR_USER', passwordVariable: 'GHCR_PAT')]) {
