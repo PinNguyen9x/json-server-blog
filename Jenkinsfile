@@ -60,6 +60,7 @@ pipeline {
               scp -o StrictHostKeyChecking=no db.json $VPS_HOST:$DEPLOY_DIR/db.json
 
             ssh -o StrictHostKeyChecking=no $VPS_HOST "\
+              docker network create webnet 2>/dev/null || true; \
               cd $DEPLOY_DIR && \
               IMAGE=$IMAGE_NAME:$IMAGE_TAG \
               docker compose up -d --remove-orphans && \
