@@ -38,8 +38,13 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'ghcr-creds', usernameVariable: 'GHCR_USER', passwordVariable: 'GHCR_PAT')]) {
           sh '''
+            # DOCKER_CONFIG riêng, không dùng osxkeychain -> login ghi token thẳng vào file
+            # (tránh 401 anonymous token của Docker Desktop macOS khi push lên ghcr)
+            export DOCKER_CONFIG="$WORKSPACE/.docker-ci"
+            mkdir -p "$DOCKER_CONFIG"
+            printf '{}' > "$DOCKER_CONFIG/config.json"
             echo "$GHCR_PAT" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
-            docker push $IMAGE:$IMAGE_TAG
+            n=0; until docker push $IMAGE:$IMAGE_TAG; do n=$((n+1)); [ $n -ge 3 ] && exit 1; echo "push fail, retry $n..."; sleep 5; done
             docker logout ghcr.io
           '''
         }
