@@ -10,7 +10,8 @@ pipeline {
   environment {
     // Jenkins (launchd) có PATH tối giản, không thấy /usr/local/bin nơi có docker
     PATH        = "/usr/local/bin:/opt/homebrew/bin:$PATH"
-    IMAGE_NAME  = 'json-server-blog'
+    // Image trên GitHub Container Registry — path BẮT BUỘC lowercase
+    IMAGE       = 'ghcr.io/pinnguyen9x/json-server-blog'
     IMAGE_TAG   = "${env.BUILD_NUMBER}"
     VPS_HOST    = 'pin@149.28.18.204'
     DEPLOY_DIR  = '/opt/json-server-blog'
@@ -27,23 +28,24 @@ pipeline {
         sh '''
           docker build \
             --platform linux/amd64 \
-            -t $IMAGE_NAME:$IMAGE_TAG \
-            -t $IMAGE_NAME:latest .
+            -t $IMAGE:$IMAGE_TAG \
+            -t $IMAGE:latest .
         '''
       }
     }
 
-    stage('Ship image to VPS') {
+    stage('Push to ghcr') {
       steps {
-        sshagent(credentials: ['vps-ssh']) {
+        withCredentials([usernamePassword(credentialsId: 'ghcr-creds', usernameVariable: 'GHCR_USER', passwordVariable: 'GHCR_PAT')]) {
           sh '''
-            docker save $IMAGE_NAME:$IMAGE_TAG | gzip | \
-              ssh -o StrictHostKeyChecking=no $VPS_HOST "gunzip | docker load"
+            echo "$GHCR_PAT" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
+            docker push $IMAGE:$IMAGE_TAG
+            docker push $IMAGE:latest
+            docker logout ghcr.io
           '''
         }
-        // Đã ship xong -> xóa TẤT CẢ tag của app trên Mac (cả latest), không đụng image khác
         sh '''
-          docker images $IMAGE_NAME --format '{{.Repository}}:{{.Tag}}' \
+          docker images $IMAGE --format '{{.Repository}}:{{.Tag}}' \
             | xargs -r docker rmi -f || true
         '''
       }
@@ -51,28 +53,32 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sshagent(credentials: ['vps-ssh']) {
-          sh '''
-            ssh -o StrictHostKeyChecking=no $VPS_HOST "mkdir -p $DEPLOY_DIR"
-            scp -o StrictHostKeyChecking=no docker-compose.yml $VPS_HOST:$DEPLOY_DIR/docker-compose.yml
-            # Chỉ copy db.json nếu VPS chưa có (tránh đè mất dữ liệu runtime)
-            ssh -o StrictHostKeyChecking=no $VPS_HOST "test -f $DEPLOY_DIR/db.json" || \
-              scp -o StrictHostKeyChecking=no db.json $VPS_HOST:$DEPLOY_DIR/db.json
+        withCredentials([usernamePassword(credentialsId: 'ghcr-creds', usernameVariable: 'GHCR_USER', passwordVariable: 'GHCR_PAT')]) {
+          sshagent(credentials: ['vps-ssh']) {
+            sh '''
+              ssh -o StrictHostKeyChecking=no $VPS_HOST "mkdir -p $DEPLOY_DIR"
+              scp -o StrictHostKeyChecking=no docker-compose.yml $VPS_HOST:$DEPLOY_DIR/docker-compose.yml
+              # Chỉ copy db.json nếu VPS chưa có (tránh đè mất dữ liệu runtime)
+              ssh -o StrictHostKeyChecking=no $VPS_HOST "test -f $DEPLOY_DIR/db.json" || \
+                scp -o StrictHostKeyChecking=no db.json $VPS_HOST:$DEPLOY_DIR/db.json
 
-            ssh -o StrictHostKeyChecking=no $VPS_HOST "\
-              docker network create webnet 2>/dev/null || true; \
-              cd $DEPLOY_DIR && \
-              IMAGE=$IMAGE_NAME:$IMAGE_TAG \
-              docker compose up -d --remove-orphans && \
-              docker image prune -af"
-          '''
+              ssh -o StrictHostKeyChecking=no $VPS_HOST "\
+                echo '$GHCR_PAT' | docker login ghcr.io -u '$GHCR_USER' --password-stdin; \
+                docker network create webnet 2>/dev/null || true; \
+                export IMAGE=$IMAGE:$IMAGE_TAG; \
+                cd $DEPLOY_DIR && \
+                docker compose pull && \
+                docker compose up -d --remove-orphans && \
+                docker image prune -af"
+            '''
+          }
         }
       }
     }
   }
 
   post {
-    success { echo "✅ Backend deploy thành công #${IMAGE_TAG} -> http://149.28.18.204:4000" }
+    success { echo "✅ Backend deploy thành công #${IMAGE_TAG}" }
     failure { echo "❌ Backend build/deploy thất bại — xem log stage lỗi" }
   }
 }
