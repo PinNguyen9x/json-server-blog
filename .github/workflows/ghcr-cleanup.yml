@@ -1,0 +1,27 @@
+name: ghcr-cleanup
+
+# Tự dọn image cũ trên ghcr: xóa bản untagged + chỉ giữ 10 version mới nhất
+on:
+  schedule:
+    - cron: '0 3 * * 0'   # 03:00 UTC mỗi Chủ nhật
+  workflow_dispatch: {}     # cho phép bấm chạy tay trong tab Actions
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Xóa các version untagged (orphan)
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: json-server-blog
+          package-type: container
+          delete-only-untagged-versions: 'true'
+          token: ${{ secrets.GHCR_TOKEN }}
+
+      - name: Giữ 10 version mới nhất, xóa phần cũ hơn
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: json-server-blog
+          package-type: container
+          min-versions-to-keep: 10
+          token: ${{ secrets.GHCR_TOKEN }}
