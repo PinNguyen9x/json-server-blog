@@ -41,13 +41,15 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'ghcr-creds', usernameVariable: 'GHCR_USER', passwordVariable: 'GHCR_PAT')]) {
           sh '''
-            export DOCKER_CONFIG="$WORKSPACE/.docker-ci"
-            mkdir -p "$DOCKER_CONFIG"; printf '{}' > "$DOCKER_CONFIG/config.json"
-            echo "$GHCR_PAT" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
+            # Build TRƯỚC (dùng buildx mặc định qua DOCKER_CONFIG gốc -> hỗ trợ --provenance)
             docker build \
               --platform linux/amd64 \
               --provenance=false \
               -t $IMAGE:$IMAGE_TAG .
+            # Login + push với DOCKER_CONFIG riêng (không osxkeychain) -> tránh 401 khi push ghcr
+            export DOCKER_CONFIG="$WORKSPACE/.docker-ci"
+            mkdir -p "$DOCKER_CONFIG"; printf '{}' > "$DOCKER_CONFIG/config.json"
+            echo "$GHCR_PAT" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
             n=0; until docker push $IMAGE:$IMAGE_TAG; do n=$((n+1)); [ $n -ge 3 ] && exit 1; echo "push fail, retry $n..."; sleep 5; done
             docker logout ghcr.io
           '''
