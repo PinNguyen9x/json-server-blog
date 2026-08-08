@@ -13,7 +13,8 @@ pipeline {
     // Image trên GitHub Container Registry — path BẮT BUỘC lowercase
     IMAGE       = 'ghcr.io/pinnguyen9x/json-server-blog'
     IMAGE_TAG   = "${env.BUILD_NUMBER}"
-    VPS_HOST    = 'pin@149.28.18.204'
+    // Đọc từ Jenkins credential (Secret text 'vps-host' = user@ip) — không hard-code IP trong repo public
+    VPS_HOST    = credentials('vps-host')
     DEPLOY_DIR  = '/opt/json-server-blog'
   }
 

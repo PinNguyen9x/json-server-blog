@@ -9,7 +9,8 @@ on:
 
 env:
   IMAGE: ghcr.io/pinnguyen9x/json-server-blog
-  VPS: pin@149.28.18.204
+  # Host/user để trong Actions Variables (Settings > Variables), không hard-code IP trong repo public
+  VPS: ${{ vars.VPS_USER }}@${{ vars.VPS_HOST }}
 
 jobs:
   build-push:
@@ -57,7 +58,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 149.28.18.204 >> ~/.ssh/known_hosts 2>/dev/null
+          ssh-keyscan -H ${{ vars.VPS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
 
       - name: Deploy lên VPS
         run: |
