@@ -33,6 +33,110 @@
   ],
   "works": [
     {
+      "id": "85287225-2cec-5155-8a6e-555d97248cb7",
+      "title": "pinit",
+      "slug": "pinit",
+      "status": "published",
+      "tagList": [
+        "NextJS",
+        "TypeScript",
+        "Docker",
+        "CI/CD",
+        "Jenkins"
+      ],
+      "frontEndTagList": [
+        "Next.js 15 pages router, SSG + ISR",
+        "React 19",
+        "MUI 5 cho hệ thống giao diện",
+        "TypeScript"
+      ],
+      "backEndTagList": [
+        "Jenkins chạy CI/CD ngay trên máy local",
+        "Docker multi-stage, container chạy non-root",
+        "ghcr.io lưu image",
+        "docker compose trên VPS, nginx đứng trước"
+      ],
+      "dbTagList": [
+        "Bài viết đọc từ markdown trong repo",
+        "Dữ liệu project lấy từ API json-server-blog"
+      ],
+      "thumbnailUrl": "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=800&auto=format&fit=crop&q=60",
+      "shortDescription": "Portfolio kiêm nơi tổng hợp kiến thức: 30 bài viết, 13 bài system design, 109 thuật ngữ. Tự dựng cả chuỗi từ git push tới production trên VPS bằng Jenkins, Docker và ghcr.",
+      "fullDescription": "## Bối cảnh\n\nPortfolio kiêm nơi tổng hợp kiến thức: 30 bài viết, 13 bài system design,\n109 thuật ngữ. Tự dựng toàn bộ chuỗi từ code tới production thay vì đẩy lên\nhosting dựng sẵn, để hiểu từng mắt xích.\n\nNext.js 15 (pages router) · React 19 · MUI 5 · TypeScript. Nội dung bài viết\nđọc từ markdown trong repo; dữ liệu project lấy từ API `json-server-blog`\ntách riêng.\n\n## Vấn đề\n\nBa ràng buộc định hình kiến trúc:\n\n- **Build không được phụ thuộc backend.** API nằm ở service riêng; nếu nó chết\n  lúc build thì trang vẫn phải dựng được.\n- **Deploy lên VPS tự quản**, không dùng PaaS — tự lo image, registry, rollout.\n- **Nội dung nặng không được kéo vào bundle chung.** 13 bài system design\n  (~2000 dòng) và 109 thuật ngữ mà lọt vào chunk dùng chung thì mọi trang đều\n  gánh, kể cả trang chủ.\n\n## Giải pháp\n\n```mermaid\nflowchart LR\n  Dev[git push] --> J[Jenkins local]\n  J --> B[docker build amd64]\n  B --> G[(ghcr.io)]\n  G --> V[VPS: docker compose]\n  V --> N[nginx]\n  A[(json-server-blog API)] -.-> J\n```\n\n**Chống phụ thuộc backend.** Mọi lời gọi API đi qua `safeFetchJson` — lỗi mạng\ntrả `null` thay vì ném, chỗ gọi tự fallback về mảng rỗng. SSG + ISR\n(`revalidate`) nên trang phục vụ từ bản tĩnh, dữ liệu tự làm mới nền.\n\n**Đóng gói.** Dockerfile multi-stage trên `node:20-alpine`: `deps` → `builder`\n→ `runner`. Container chạy bằng user thường (uid 1001) chứ không phải root.\nDùng `output: standalone` của Next nên image chỉ chứa đúng file cần chạy.\n\n**Đường ra production.** Jenkins chạy ngay trên máy local, tách hai môi trường\ntheo branch — staging cổng 3001, prod cổng 3000. Image gắn tag\n`<env>-<build-number>` để biết chính xác bản nào đang chạy. Bước đẩy lên ghcr\ncó retry 3 lần vì đăng nhập registry thỉnh thoảng lỗi keychain.\n\n**Giữ bundle gọn.** Barrel `constants/index.ts` cố ý không re-export dữ liệu\nsystem design, kèm test canh để lỗi này không tái phát — đây là lỗi đã từng\nxảy ra và không công cụ nào trong repo bắt được, chỉ đọc kích thước chunk\ntrong output `next build` mới thấy.\n\n## Kết quả\n\n- **26 route**, phần lớn dựng tĩnh\n- **156 test** trong 8 file, chạy khoảng 2 giây\n- Trang chủ **341 kB** First Load JS, phần dùng chung **249 kB**\n- Dữ liệu system design nằm ngoài chunk của trang chủ — đối chiếu trực tiếp\n  bằng danh sách chunk mà trang chủ nạp\n- Đang chạy thật trên VPS sau nginx\n",
+      "createdAt": "1754640000000",
+      "updatedAt": "1754640000000",
+      "linkDemo": "https://nipit.pro",
+      "linkSource": "https://github.com/PinNguyen9x/pinit"
+    },
+    {
+      "id": "f6470632-bfd8-4968-a9c6-2e359d3fb958",
+      "title": "Json-Server",
+      "status": "published",
+      "slug": "json-server",
+      "frontEndTagList": [],
+      "backEndTagList": [
+        "json-server dựng REST API từ một file JSON",
+        "ExpressJS cho các route tự viết thêm",
+        "JWT (jsonwebtoken) cho đăng nhập",
+        "faker sinh dữ liệu mẫu",
+        "swagger-jsdoc + swagger-ui-express cho tài liệu",
+        "GitHub Actions build image và deploy lên VPS",
+        "Docker + docker compose"
+      ],
+      "thumbnailUrl": "https://media.istockphoto.com/id/1903606349/photo/api-concept-application-programming-interface-connect-services-on-internet.webp?a=1&b=1&s=612x612&w=0&k=20&c=1Vjx3Fo2o5r8mOQxmujg0ddgSea_dj1tYmTTio150xA=",
+      "tagList": [
+        "NodeJS",
+        "ExpressJS",
+        "JWT",
+        "Faker",
+        "Docker"
+      ],
+      "fullDescription": "## Bối cảnh\n\nAPI phục vụ toàn bộ site pinit: bài viết, project, đăng nhập, hồ sơ. Mục tiêu\nlà có backend đủ thật để frontend phát triển và deploy được, mà không phải\ndựng database và service riêng.\n\n## Vấn đề\n\n`json-server` cho CRUD miễn phí nhưng dừng ở đó: không xác thực, không tài\nliệu, và mặc định chỉ chạy trên máy. Muốn dùng thật thì phải bù ba phần đó.\n\n## Giải pháp\n\nGiữ `json-server` lo phần CRUD, bọc thêm tầng Express cho những gì nó thiếu:\n\n- **Đăng nhập** bằng `jsonwebtoken` — cấp JWT, route cần quyền thì kiểm token\n- **Tài liệu** sinh bằng `swagger-jsdoc` + `swagger-ui-express`, mở tại\n  `/api-docs` để frontend tra cứu mà không cần đọc code\n- **Dữ liệu mẫu** sinh bằng `faker` qua script riêng, không phải gõ tay\n\n```mermaid\nflowchart LR\n  A[GitHub Actions] --> B[docker build amd64]\n  B --> C[(ghcr.io)]\n  C --> D[ssh VPS]\n  D --> E[docker compose up]\n  A --> F[workflow dọn image cũ]\n```\n\n**CI/CD** bằng GitHub Actions: build image amd64 ngay trên runner, đẩy lên\nghcr, rồi ssh vào VPS chạy compose. Một workflow riêng dọn image cũ và giữ lại\n10 bản mới nhất — không có nó thì registry phình theo mỗi lần build.\n\n## Kết quả\n\n- **4 nhóm endpoint**: `/posts`, `/works`, `/login`, `/profile`\n- Đang phục vụ thật cho pinit — trang chủ và trang project lấy dữ liệu từ đây\n- Tài liệu Swagger mở công khai, dùng được ngay để thử endpoint\n",
+      "createdAt": "1722091716231",
+      "updatedAt": "1722091716231",
+      "linkDemo": "https://json-server-blog.vercel.app/api-docs",
+      "linkSource": "https://github.com/PinNguyen9x/json-server-blog",
+      "shortDescription": "API phục vụ toàn bộ site pinit. Giữ json-server lo CRUD, bọc thêm tầng Express cho đăng nhập JWT, tài liệu Swagger và dữ liệu mẫu sinh bằng faker.",
+      "dbTagList": [
+        "db.json làm kho dữ liệu"
+      ]
+    },
+    {
+      "id": "a4467850-b6b9-4597-9725-787878d6ac9e",
+      "title": "Twitter-Node-Server",
+      "status": "published",
+      "slug": "twitter-node-server",
+      "frontEndTagList": [],
+      "backEndTagList": [
+        "Express + TypeScript cho tầng API",
+        "JWT (jsonwebtoken) cho xác thực",
+        "helmet đặt header bảo mật",
+        "express-rate-limit chặn gọi dồn",
+        "express-validator kiểm dữ liệu đầu vào",
+        "formidable + sharp cho upload và xử lý ảnh",
+        "swagger-jsdoc sinh tài liệu API",
+        "PM2 chạy production",
+        "Docker, có bản riêng cho môi trường dev"
+      ],
+      "dbTagList": [
+        "MongoDB lưu dữ liệu"
+      ],
+      "thumbnailUrl": "https://images.unsplash.com/photo-1611162618479-ee3d24aaef0b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8VHdpdHRlcnxlbnwwfHwwfHx8MA%3D%3D",
+      "tagList": [
+        "TypeScript",
+        "NodeJS",
+        "ExpressJS",
+        "MongoDB",
+        "Docker"
+      ],
+      "fullDescription": "## Bối cảnh\n\nBackend kiểu Twitter viết bằng TypeScript trên Express + MongoDB. Tự dựng để\nđi sâu phần server: xác thực, upload media, và cách chia tầng cho một API có\nnhiều nhóm chức năng.\n\n## Vấn đề\n\nMột API thật cần nhiều thứ mà bản tutorial thường bỏ qua: chặn gọi dồn, kiểm\ndữ liệu đầu vào, đặt header bảo mật, xử lý ảnh trước khi lưu, và tài liệu để\nngười khác dùng được.\n\n## Giải pháp\n\n**Chia tầng** rõ ràng thay vì dồn hết vào route:\n\n```mermaid\nflowchart LR\n  R[routes] --> C[controllers]\n  C --> S[services]\n  S --> M[models]\n  MW[middlewares] -.-> R\n```\n\n**Phòng thủ đặt ở tầng middleware**, không rải trong controller:\n\n- `helmet` đặt các header bảo mật\n- `express-rate-limit` chặn gọi dồn\n- `express-validator` kiểm dữ liệu vào trước khi tới controller\n- `jsonwebtoken` cho xác thực\n\n**Upload và ảnh**: `formidable` nhận file, `sharp` xử lý trước khi lưu — không\nđể file thô đi thẳng vào storage.\n\n**Vận hành**: PM2 (`ecosystem.config.js`) chạy production, Docker đóng gói kèm\nmột `Dockerfile.dev` riêng cho môi trường phát triển.\n\n## Kết quả\n\n- **3 nhóm route**: `users`, `medias`, `static`\n- Khoảng **85 KB** mã TypeScript\n- Tài liệu Swagger sinh tự động từ chú thích trong code\n",
+      "createdAt": "1722091716231",
+      "updatedAt": "1722091716231",
+      "linkDemo": "https://twitter-navy-seven.vercel.app/api-docs/",
+      "linkSource": "https://github.com/PinNguyen9x/Nodejs",
+      "shortDescription": "Backend kiểu Twitter viết bằng TypeScript trên Express và MongoDB, chia tầng routes/controllers/services/models, kèm JWT, rate limit, kiểm dữ liệu đầu vào và xử lý ảnh khi upload."
+    },
+    {
       "id": "2feaafad-7086-45ce-9f9d-515a7e7d6ba3",
       "title": "Game Color Matching",
       "slug": "game-color-matching",
@@ -80,41 +184,6 @@
       "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">AI-Chatbot</span> application utilizes OpenAI's and Claude's chat APIs to provide intelligent, interactive conversations..."
     },
     {
-      "id": "a4467850-b6b9-4597-9725-787878d6ac9e",
-      "title": "Twitter-Node-Server",
-      "status": "draft",
-      "slug": "twitter-node-server",
-      "frontEndTagList": [
-        "React components with TypeScript for UI development",
-        "NextJS for server-side rendering, ISR, and static site generation",
-        "useSWR for state management"
-      ],
-      "backEndTagList": [
-        "NodeJS for server-side development",
-        "Docker for containerization",
-        "GitHub Action for continuous integration and deployment",
-        "JSON Server for to build fake APIs",
-        "ExpressJS to configure routes and handle requests"
-      ],
-      "dbTagList": [
-        "MongoDB for data storage",
-        "AWS for cloud storage"
-      ],
-      "thumbnailUrl": "https://images.unsplash.com/photo-1611162618479-ee3d24aaef0b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8VHdpdHRlcnxlbnwwfHwwfHx8MA%3D%3D",
-      "tagList": [
-        "NodeJS",
-        "MongoDB",
-        "Docker",
-        "GitHub Action"
-      ],
-      "fullDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Twitter-Node-Server</span> application integrates with the Twitter API to fetch and display tweets. It allows users to interact with Twitter data, providing a backend service for managing and retrieving tweets efficiently.",
-      "createdAt": "1722091716231",
-      "updatedAt": "1722091716231",
-      "linkDemo": "https://twitter-navy-seven.vercel.app/api-docs/",
-      "linkSource": "https://github.com/PinNguyen9x/Nodejs",
-      "shortDescription": "The <span style=\"font-weight: 700; font-style: italic;\">Twitter-Node-Server</span> application integrates with the Twitter API to fetch and display tweets. It allows users to interact with Twitter data, providing a backend service for managing and retrieving tweets efficiently."
-    },
-    {
       "id": "6bc7c512-64a9-4020-a418-ede8392c0293",
       "title": "Dashboard",
       "status": "draft",
@@ -144,34 +213,6 @@
       "linkDemo": "https://leaning-system.vercel.app/",
       "linkSource": "https://github.com/PinNguyen9x/Leaning-system",
       "shortDescription": "A TypeScript-based CRUD application for managing data entries, allowing users to create, read, update, and delete records with an intuitive interface, real-time updates, and error handling."
-    },
-    {
-      "id": "f6470632-bfd8-4968-a9c6-2e359d3fb958",
-      "title": "Json-Server",
-      "status": "draft",
-      "slug": "json-server",
-      "frontEndTagList": [
-        "ReactJS, TypeScript for UI development"
-      ],
-      "backEndTagList": [
-        "NodeJS for server-side development",
-        "ExpressJS to configure routes and handle requests",
-        "JWT to implement for authentication"
-      ],
-      "thumbnailUrl": "https://media.istockphoto.com/id/1903606349/photo/api-concept-application-programming-interface-connect-services-on-internet.webp?a=1&b=1&s=612x612&w=0&k=20&c=1Vjx3Fo2o5r8mOQxmujg0ddgSea_dj1tYmTTio150xA=",
-      "tagList": [
-        "TypeScript",
-        "Faker",
-        "ExpressJS",
-        "NodeJS",
-        "JWT"
-      ],
-      "fullDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">json-server</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete) and is ideal for developing or testing web applications without a complex backend. It is easy to configure, flexible, and extensible, making it a powerful tool for prototyping, front-end integration, and rapid iteration. Additionally, it allows custom routes and middleware, offering greater control and adaptability for developers.",
-      "createdAt": "1722091716231",
-      "updatedAt": "1722091716231",
-      "linkDemo": "https://json-server-blog.vercel.app/api-docs",
-      "linkSource": "https://github.com/PinNguyen9x/json-server-blog",
-      "shortDescription": "The application API uses <span style=\"font-weight: 700; font-style: italic;\">json-server</span> to quickly simulate a RESTful API from a JSON file. It supports CRUD operations (Create, Read, Update, Delete)."
     },
     {
       "id": "e09bf720-0989-445c-b0bb-457ec99c8dd8",
